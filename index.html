@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@shower/ribbon/styles/index.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+
+    <style>
+      .shower {
+        --slide-ratio: calc(16 / 9);
+      }
+
+      :root {
+        --dark-theme-grey: #bebebe;
+      }
+      .border-red {
+        &:not(.next),
+        &.next.active {
+          outline: 2px solid #ed4344;
+          outline-offset: 2px;
+        }
+
+        .shower.full
+          &.next:not(.hidden):not(.next:not(:is(.visited, .active)) .next) {
+          visibility: visible;
+        }
+      }
+
+      .border-bottom-red {
+        position: relative;
+      }
+      .border-bottom-red::after {
+        content: '';
+        inset: -2px;
+        position: absolute;
+        border-bottom: 2px solid #ed4344;
+      }
+
+      .slide {
+        background-color: light-dark(#fff, #000);
+        color: rgb(201, 209, 217);
+
+        h2 {
+          color: var(--dark-theme-grey);
+
+          &.shout {
+            font-size: 120px;
+            text-wrap: balance;
+            padding: 0 40px;
+            box-sizing: border-box;
+
+            &.font-90 {
+              font-size: 90px;
+            }
+          }
+        }
+
+        li {
+          color: var(--dark-theme-grey);
+        }
+      }
+
+      pre code.hljs {
+        /* padding: 0; */
+      }
+
+      .codeError {
+        text-decoration: underline wavy red;
+      }
+
+      .font-size-10 {
+        font-size: 10px;
+      }
+      .font-size-12 {
+        font-size: 12px;
+      }
+      .font-size-14 {
+        font-size: 14px;
+      }
+
+      .font-size-16 {
+        font-size: 16px;
+      }
+
+      .font-size-18 {
+        font-size: 18px;
+      }
+
+      .font-size-20 {
+        font-size: 20px;
+      }
+
+      .font-size-22 {
+        font-size: 22px;
+      }
+
+      .font-size-24 {
+        font-size: 24px;
+      }
+
+      .nm {
+        margin-left: 0 !important;
+      }
+
+      .cover {
+        object-fit: cover;
+
+        filter: brightness(0.3);
+      }
+    </style>
+  </head>
+  <body class="shower list">
+    <header class="caption">
+      <h1>Shower Presentation Engine</h1>
+      <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <header class="caption">
+      <h1>Как я перестал зависеть от дизайн-системы и изобрел MVVM</h1>
+    </header>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Как я&nbsp;перестал зависеть от&nbsp;дизайн системы и&nbsp;изобрел MVVM
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Дисклеймер</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Извините</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">О&nbsp;чем пойдет речь?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Об&nbsp;MVVM <span class="next">, но&nbsp;не&nbsp;совсем</span>
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Почему?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Будет не&nbsp;только MVVM</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Не&nbsp;на&nbsp;прямую, а&nbsp;через путь идеи</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Определение MVVM будет позже</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Примеры на&nbsp;React</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Но&nbsp;главное это идеи</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Какая предыстория?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Замена текущей&nbsp;DS на&nbsp;новую</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Новая DS&nbsp;имеет иной способ стилизации</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Нужно переключать по&nbsp;фича-флагу</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Поддержка нескольких DS</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Кастомизация для потребителей</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Че&nbsp;ж делать, че&nbsp;ж делать?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Какой-то компонент Card</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ cardId }) =&gt; {
+  const title = /*  */;
+  const buttonText = /*  */;
+
+  const onClick = () =&gt; {/*  */};
+
+  return (
+    &lt;Cell className="container"&gt;
+      &lt;Heading className="title" level={2}&gt;
+        {title}
+      &lt;/Heading&gt;
+
+      &lt;Button onClick={onClick} className="button"&gt;
+        {buttonText}
+      &lt;/Button&gt;
+    &lt;/Cell&gt;
+  )
+}</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Какой-то компонент Screen</h2>
+
+      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = () => {
+  const cardId = /*  */;
+  
+  return (
+    &lt;Container className="screen"&gt;
+      &lt;Card cardId={cardId} /&gt;
+    &lt;/Container&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">о&nbsp;0 8&nbsp;оо<br />(копипаста)</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Дублирование</h2>
+
+      <div class="columns two">
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ cardId }) =&gt; {
+  const title = /*  */;
+  const buttonText = /*  */;
+
+  const onClick = () =&gt; {/*  */};
+
+  return (
+    &lt;Cell className="container"&gt;
+      &lt;Heading className="title" level={2}&gt;
+        {title}
+      &lt;/Heading&gt;
+
+      &lt;Button onClick={onClick} className="button"&gt;
+        {buttonText}
+      &lt;/Button&gt;
+    &lt;/Cell&gt;
+  )
+}</code></pre>
+        </div>
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">const CardAnother = ({ cardId }) =&gt; {
+  const title = /*  */;
+  const buttonText = /*  */;
+
+  const onClick = () =&gt; {/*  */};
+
+  return (
+    &lt;Content&gt;
+      &lt;Header  level={2}&gt;
+        {title}
+      &lt;/Heading&gt;
+
+      &lt;Button onClick={onClick} variant="primary" fullWidth&gt;
+        {buttonText}
+      &lt;/Button&gt;
+    &lt;/Content&gt;
+  )
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Дублирование плохА</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Малейшее изменение нужно не&nbsp;потерять</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Вынос логики из&nbsp;компонента (hook&nbsp;/ composable&nbsp;/ service)
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Вынос логики в&nbsp;хук</h2>
+
+      <pre><code class="hljs language-typescript nm">const useCardProps = () =&gt; {
+  /*  */
+  return { title, onClick, buttonText };
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Использование хука</h2>
+
+      <div class="columns two">
+        <pre><code class="hljs language-typescript nm font-size-10">const Card = ({ cardId }) =&gt; {
+    const { title, onClick, buttonText } = useCardProps();
+  
+    return (
+      &lt;Cell className="container"&gt;
+        &lt;Heading className="title"&gt;
+          {title}
+        &lt;/Heading&gt;
+  
+        &lt;Button onClick={onClick} className="button"&gt;
+          {buttonText}
+        &lt;/Button&gt;
+      &lt;/Cell&gt;
+    )
+  }</code></pre>
+        <pre><code class="hljs language-typescript nm font-size-10">const CardAnother = ({ cardId }) =&gt; {
+    const { title, onClick, buttonText } = useCardProps();
+  
+    return (
+      &lt;Content&gt;
+        &lt;Header  level={2}&gt;
+          {title}
+        &lt;/Heading&gt;
+  
+        &lt;Button onClick={onClick} variant="primary" fullWidth&gt;
+          {buttonText}
+        &lt;/Button&gt;
+      &lt;/Content&gt;
+    )
+  }</code></pre>
+      </div>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Изменения в&nbsp;лейауте все еще дублируются</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Headless компоненты</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Headless&nbsp;&mdash; компоненты с&nbsp;логикой, но&nbsp;без стилизации
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Обычно стили передаются через className</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Но&nbsp;у&nbsp;нас уже готовые компоненты из&nbsp;DS
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Сделаем headless на&nbsp;уровне компонентов, а&nbsp;не&nbsp;стилей
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Не&nbsp;headless лейаут</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
+  const { title, onClick, buttonText } = useCardProps(itemId);
+
+  return (
+    &lt;Cell className="container"&gt;
+      &lt;Heading className="title" level={2}&gt;
+        {title}
+      &lt;/Heading&gt;
+
+      &lt;Button onClick={onClick} variant="primary" fullWidth className="button"&gt;
+        {buttonText}
+      &lt;/Button&gt;
+    &lt;/Cell&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Headless лейаут</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
+  const { title, onClick, buttonText } = useCardProps(itemId);
+
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout" style="font-size: 100px">
+        Title, Button и&nbsp;Container неизвестные компоненты зависящие
+        от&nbsp;контракта
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Контракт&nbsp;&mdash; тип пропсов, которые будут переданы
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Пример контракта</h2>
+
+      <pre><code class="hljs language-typescript">type Title = ComponentType&lt;TitleProps&gt;;</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Компоненты для headless лейаута</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const CardContainer = ({ children }) =&gt; (
+  &lt;Cell className="container"&gt;{children}&lt;/Cell&gt;
+);
+const CardTitle = ({ children }) =&gt; (
+  &lt;Heading level={2} className="title"&gt;
+    {children}
+  &lt;/Heading&gt;
+);
+const CardTitle = ({ onClick, children }) =&gt; (
+  &lt;Button onClick={onClick} variant="primary" fullWidth className="button"&gt;
+    {children}
+  &lt;/Button&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Токен - Компонент не&nbsp;требующий стилизации</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Card по&nbsp;сути тоже токен</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Card тоже токен</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
+  const { title, onClick, buttonText } = useCardProps(itemId);
+
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Откуда токены в&nbsp;компонентах будет позже</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Интересный побочный эффект</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Для Screen не&nbsp;важно как устроен Card</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Card&nbsp;&mdash; это контракт</h2>
+
+      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = () => {
+  const cardId = /*  */;
+  
+  return (
+    &lt;Container&gt;
+      &lt;Card cardId={cardId} /&gt;
+    &lt;/Container&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">А&nbsp;данные сейчас вшиты в&nbsp;Headless</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Если нужно заменить Card, нужно дать доступ к&nbsp;данным
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Оставим лейаут &laquo;глупым&raquo;</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Глупый&nbsp;&mdash; отвечает только за&nbsp;отображение
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Данные как пропсы</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Данные как пропсы</h2>
+
+      <pre><code class="hljs language-typescript font-size-16 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+    <section class="slide black">
+      <h2>Данные как пропсы</h2>
+
+      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = ({ cardProps }) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Card {...cardProps} /&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Нужен компонент, который предоставит данные</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Нужен провайдер данных</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Не&nbsp;Context.Provider</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Провайдер данных</h2>
+      <pre><code class="hljs language-typescript nm">const ScreenDataProvider = () =&gt; {
+  const cardProps = useCardProps();
+
+  return &lt;Screen cardProps={cardProps} /&gt;;
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Локальный провайдер данных</h2>
+      <pre><code class="hljs language-typescript  nm">const CardDataProvider = () =&gt; {
+  const cardProps = useCardProps();
+
+  return &lt;Card {...cardProps} /&gt;;
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Как получать токены в&nbsp;компоненты?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Runtime</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Конфиг с&nbsp;токенами?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Конфиг для Card</h2>
+      <pre><code class="hljs language-typescript nm">const components = {
+  card: {
+    Container: CardContainer,
+    Title: CardTitle,
+    Button: CardButton,
+  },
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Извлечение токенов в&nbsp;Card</h2>
+      <pre><code class="hljs language-typescript font-size-14 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
+  const {
+    card: { Container, Title, Button },
+  } = useContext(ComponentsContext);
+
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Конфиг для Screen</h2>
+
+      <pre><code class="hljs language-typescript font-size-14 nm">const components = {
+  card: {
+    Container: CardContainer,
+    Title: CardTitle,
+    Button: CardButton,
+  },
+  screen: {
+    Card: Card,
+    Container: ScreenContainer,
+  },
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Извлечение токенов в&nbsp;Screen</h2>
+
+      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = ({ cardProps }) =&gt; {
+  const {
+    screen: { Container, Card },
+  } = useContext(ComponentsContext);
+
+  return (
+    &lt;Container&gt;
+      &lt;Card {...cardProps} /&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Не&nbsp;выйдет переиспользовать лейаут</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Card берет конкретные токены</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Card берет конкретные токены</h2>
+      <pre><code class="hljs language-typescript font-size-14 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
+  const {
+    card: { Container, Title, Button },
+  } = useContext(ComponentsContext);
+
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Рекурсивная зависимость</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Card лежит в&nbsp;том&nbsp;же конфиге что и&nbsp;его части</h2>
+
+      <pre><code class="hljs language-typescript font-size-14 nm">const components = {
+  card: {
+    Container: CardContainer,
+    Title: CardTitle,
+    Button: CardButton,
+  },
+  screen: {
+    Card: Card,
+    Container: ScreenContainer,
+  },
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Конфиг еще вернется в&nbsp;новом обличии</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Токены как пропсы</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Токены как пропсы в&nbsp;Card</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const HeadlessCard = ({
+  title,
+  onClick,
+  buttonText,
+
+  Container,
+  Title,
+  Button,
+}) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Передача токенов в&nbsp;Card</h2>
+      <pre><code class="hljs language-typescript nm">const Card = ({ props }) =&gt; (
+  &lt;HeadlessCard
+    {...props}
+    Container={CardContainer}
+    Title={CardTitle}
+    Button={CardButton}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Токены как пропсы в&nbsp;Screen</h2>
+      <pre><code class="hljs language-typescript nm">const HeadlessScreen = ({ cardProps, Container, Card }) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Card {...cardProps} /&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Передача Card в&nbsp;Screen</h2>
+
+      <pre><code class="hljs language-typescript  nm">const Screen = (props) =&gt; (
+  &lt;HeadlessScreen {...props} Card={Card} Container={ScreenContainer} /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Собранный компонент&nbsp;&mdash; блок</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Пропс лейаута в&nbsp;провайдере данных</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Передача лейаута в&nbsp;провайдер данных</h2>
+      <pre><code class="hljs language-typescript  nm">const ScreenDataProvider = ({ ScreenLayout }) =&gt; {
+  const cardProps = useCardProps();
+
+  return &lt;ScreenLayout cardProps={cardProps} /&gt;;
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Buildtime</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Декларирование модуля</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">declare module '@tokens' {
+  export const Container: FClt;ContainerPropsgt;;
+  export const Title: FClt;TitlePropsgt;;
+  export const Button: FClt;ButtonPropsgt;;
+}</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Импорт</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">import { Container, Title, Button } from '@tokens';
+
+const Card = ({ title, onClick, buttonText }) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Title&gt;{title}&lt;/Title&gt;
+
+      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
+    &lt;/Container&gt;
+  );
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Подстановка модуля</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">export default {
+  resolve: {
+    alias: {
+      '@tokens': path.join(/* ... */),
+    },
+  },
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">На&nbsp;текущий момент</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Обособленная логика приложения</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Лейаут без логики*</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">*Лейаут не&nbsp;dumb component</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Лейаут без зависимости от&nbsp;DS</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Адаптер между логикой и&nbsp;представлением</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Вот и&nbsp;получился MVVM</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Что это все таки такое?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Model View View-Model</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Model&nbsp;&mdash; хранение, загрузка, обработка данных
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">View&nbsp;&mdash; отображение данных</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">View-Model&nbsp;&mdash; связующие звено</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Что это дает?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Легко тестировать UI</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Легко тестировать логику</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Легко заменить один&nbsp;UI на&nbsp;другой</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Легко заменить один источник данных на&nbsp;другой</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">MVVM&nbsp;&mdash; разделение зон ответственности</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Типизация</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Слои взаимодействуют, через контракты</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Типы и&nbsp;есть контракты</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Контракты для токенов</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Контракты для Card</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">type CardButtonProps = { onClick: () =&gt; void; children: JSX.Element };
+type CardTitleProps = { children: JSX.Element };
+type CardContainerProps = { children: JSX.Element };
+
+type CardProps = {
+  title: string;
+  buttonText: string;
+  onClick: () =&gt; void;
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Контракты для Screen</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">type ScreenContainerProps = { children: JSX.Element };
+
+type ScreenProps = {
+  cardProps: CardProps;
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Токены</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Токены</h2>
+      <pre><code class="hljs language-typescript font-size-10 nm">const CardButton: ComponentType&lt;CardButtonProps&gt;;
+const CardTitle: ComponentType&lt;CardTitleProps&gt;;
+const CardContainer: ComponentType&lt;CardContainerProps&gt;;
+
+const Card: ComponentType&lt;CardProps&gt;;
+
+const ScreenContainer: ComponentType&lt;ScreenContainerProps&gt;;
+
+const Screen: ComponentType&lt;ScreenProps&gt;;</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Headless</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Тип токенов для Headless лайатутов</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">type HeadlessCardComponents = {
+  Button: ComponentType&lt;CardButtonProps&gt;;
+  Title: ComponentType&lt;CardTitleProps&gt;;
+  Container: ComponentType&lt;CardContainerProps&gt;;
+};
+
+type HeadlessScreenComponent = {
+  Container: ComponentType&lt;ScreenContainerProps&gt;;
+  Card: ComponenType&lt;CardProps&gt;;
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Попсы Headless лейутов</h2>
+
+      <pre><code class="hljs language-typescript nm">type HeadlessCardProps = HeadlessCardComponents &amp;CardProps;
+
+type HeadlessScreenProps = HeadlessScreenProps &amp;ScreenProps;
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Кастомизация</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Фича-флаг кастомизация</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Фича-флаг кастомизация</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = (props) =&gt; {
+  const CardButton = flag ? First : Second;
+
+  return (
+    &lt;HeadlessCard
+      {...props}
+      Container={CardContainer}
+      Title={CardTitle}
+      Button={CardButton}
+    /&gt;
+  );
+};
+
+const Screen = (props) =&gt; {
+  const Card = flag ? First : Second;
+
+  return &lt;HeadlessScreen {...props} Card={Card} Container={ScreenContainer} /&gt;;
+};
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Каждый случай нужно описывать отдельно</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Кастомизация на&nbsp;перезаписи токенов</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Этап первый</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Компоненты которые зависят только от&nbsp;токенов</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Сборный компонент Card</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Card = (props) =&gt; (
+  &lt;HeadlessCard
+    {...props}
+    Container={CardContainer}
+    Title={CardTitle}
+    Button={CardButton}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">props&nbsp;&mdash; это js объект</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Объявление одного и&nbsp;того&nbsp;же поля перезаписывает его
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Перезапись Title</h2>
+
+      <pre><code class="hljs language-typescript nm">const Card = (props) =&gt; (
+  &lt;HeadlessCard
+    {...props}
+    Container={CardContainer}
+    Title={CardTitle}
+    Button={CardButton}
+    Title={AnotherTitle}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Перезапись токенов Card</h2>
+
+      <pre><code class="hljs language-typescript  nm">const Card = ({ overrides, ...props }) =&gt; (
+  &lt;HeadlessCard
+    {...props}
+    Container={CardContainer}
+    Title={CardTitle}
+    Button={CardButton}
+    {...overrides}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Передача overrides в&nbsp;Card</h2>
+
+      <pre><code class="hljs language-typescript  nm">(
+  &lt;Card
+    {...cardProps}
+    overrides={{
+      Title: AnotherTitle,
+    }}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Этап второй</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Компоненты зависящие от&nbsp;блоков</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Будет чуть-чуть запутанно</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Screen зависит от&nbsp;Card</h2>
+
+      <pre><code class="hljs language-typescript nm">const Screen = (props) =&gt; (
+  &lt;HeadlessScreen
+    {...props}
+    Card={Card}
+    Container={ScreenContainer}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Можно сделать также как и&nbsp;Card</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Переопределение токенов Screen</h2>
+
+      <pre><code class="hljs language-typescript nm">const Screen = ({ overrides, ...props }) =&gt; (
+  &lt;HeadlessScreen
+    {...props}
+    Card={Card}
+    Container={ScreenContainer}
+    {...overrides}
+  /&gt;
+);</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Но&nbsp;что если хочется переопределить что-то в&nbsp;Card?
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Передача перезаписи токенов для Card</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Передадим не&nbsp;компонент, а&nbsp;объект с токенами
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Передача токенов для Card в&nbsp;Screen</h2>
+
+      <pre><code class="hljs language-typescript nm">&lt;Screen
+  overrides={{
+    Card: {
+      Title: AnotherTitle,
+    },
+  }}
+/&gt;;
+</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Перезаписи токенов Card в&nbsp;HeadlessScreen</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const HeadlessScreen = ({ cardProps, Container, Card, overrides }) =&gt; {
+  return (
+    &lt;Container&gt;
+      &lt;Card {...cardProps} overrides={overrides.Card} /&gt;
+    &lt;/Container&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Нужно разделять перезаписть компонент и&nbsp;частей</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Разделение overrides на&nbsp;части</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const Screen = ({ overrides, ...props }) =&gt; {
+  const { tokensOverrides, tokensPartsOverrides } =
+    getComponentsAndOverrides(overrides);
+
+  return (
+    &lt;HeadlessScreen
+      {...props}
+      Card={Card}
+      Container={ScreenContainer}
+      {...tokensOverrides}
+      overrides={tokensPartsOverrides}
+    /&gt;
+  );
+};</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Логика разделения overrides на&nbsp;части</h2>
+
+      <div class="columns two">
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">getComponentsAndOverrides({ Card: AnotherCard });</code></pre>
+        </div>
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">{
+  tokensOverrides: { Card: AnotherCard },
+  tokensPartsOverrides: {},
+};</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide black">
+      <h2>Логика разделения overrides на&nbsp;части</h2>
+
+      <div class="columns two">
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">getComponentsAndOverrides({ Card: { Title } });</code></pre>
+        </div>
+        <div>
+          <pre><code class="hljs language-typescript font-size-10 nm">{
+  tokensOverrides: {},
+  tokensPartsOverrides: { Card: { Title } },
+};</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Типизация для overrides</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Очень бегло</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Демка</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">ДОБАВИТЬ БЛОК ОТ ЧЕГО МОЖНО ОТКАЗАТЬСЯ</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Личные советы</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Избегайте обработки данных вне провайдеров</h2>
+    </section>
+
+    <section class="slide black">
+      <h2>Логика в&nbsp;ui</h2>
+
+      <pre><code class="hljs language-typescript nm">const HeadlessCard = ({
+  city,
+  district,
+  street,
+  /*  */
+}) =&gt; {
+  const title = [city, district, street].filter(Boolean).join(', ');
+
+  return (/*  */);
+};</code></pre>
+
+    <section class="slide black">
+      <h2>Логика вне&nbsp;ui</h2>
+
+      <pre><code class="hljs language-typescript nm">const useCardProps = () =&gt; {
+  const title = [city, district, street].filter(Boolean).join(', ');
+  /*  */
+  return { title, onClick, buttonText };
+};</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Избегать !== 100% нельзя</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Управляйте отображением через данные, а&nbsp;не&nbsp;флаги
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 >Через флаг</h2>
+
+      <pre><code class="hljs language-typescript nm">const HeadlessCard = ({
+  /*  */
+  hidden,
+  /*  */
+}) =&gt; {
+  if (hidden) return null;
+
+  return (/*  */);
+};</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2>Через данные</h2>
+
+      <pre><code class="hljs language-typescript  nm">const HeadlessScreen = ({ cardProps }) =&gt; {
+  return (
+    &lt;Container&gt;
+      {cardProps ? &lt;Card {...cardProps} /&gt; : null}
+    &lt;/Container&gt;
+  );
+}</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Если массив данных, то&nbsp;не&nbsp;передавайте скрытые элементы
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 >Через флаг</h2>
+
+      <pre><code class="hljs language-typescript nm">const HeadlessList = ({ items, Container, ListItem }) =&gt; {
+  return (
+    &lt;Container&gt;
+      {items.map(item =&gt; item.hidden
+          ? null
+          : &lt;ListItem {...item} /&gt;)
+      }
+      {/*  */}
+    &lt;/Container&gt;
+  );
+};</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2 >Через данные</h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const useListProps = () =&gt; {
+  return items.filter(item =&gt; !item.hidden)
+}</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">
+        Лейаут можно разбивать на&nbsp;части по&nbsp;мере необходимости
+      </h2>
+    </section>
+
+    <section class="slide black">
+      <h2 >
+        Лейаут&nbsp;&mdash; это контракт
+      </h2>
+
+      <pre><code class="hljs language-typescript font-size-10 nm">const ScreenDataProvider = ({ ScreenLayout }) =&gt; {
+  const cardProps = useCardProps();
+
+  return &lt;ScreenLayout cardProps={cardProps} /&gt;;
+};</code></pre>
+      
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Спасибо за&nbsp;внимание</h2>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@shower/core/dist/shower.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/typescript.min.js"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
