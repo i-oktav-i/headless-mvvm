@@ -127,7 +127,6 @@
     <header class="caption">
       <h1>Как я перестал зависеть от дизайн-системы и изобрел MVVM</h1>
     </header>
-
     <section class="slide black">
       <h2 class="shout">
         Как я&nbsp;перестал зависеть от&nbsp;дизайн системы и&nbsp;изобрел MVVM
@@ -201,28 +200,42 @@
     </section>
 
     <section class="slide black">
+      <h2>Кастомизация для потребителей</h2>
+
+      <div class="columns two">
+        <img style="width: 100%" src="/assets/customization1.jpg" />
+
+        <img style="width: 100%" src="/assets/customization2.jpg" />
+      </div>
+    </section>
+
+    <section class="slide black">
       <h2 class="shout">Че&nbsp;ж делать, че&nbsp;ж делать?</h2>
+    </section>
+
+    <section class="slide black">
+      <h2 class="shout">Возьмем за&nbsp;основу несколько компонентов</h2>
     </section>
 
     <section class="slide black">
       <h2>Какой-то компонент Card</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ cardId }) =&gt; {
-  const title = /*  */;
-  const buttonText = /*  */;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ cardId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = <span class="hljs-comment">/*  */</span>;
+  <span class="hljs-keyword">const</span> buttonText = <span class="hljs-comment">/*  */</span>;
 
-  const onClick = () =&gt; {/*  */};
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onClick</span> = (<span class="hljs-params"></span>) =&gt; {<span class="hljs-comment">/*  */</span>};
 
-  return (
-    &lt;Cell className="container"&gt;
-      &lt;Heading className="title" level={2}&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span>&gt;</span>
         {title}
-      &lt;/Heading&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
 
-      &lt;Button onClick={onClick} className="button"&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
         {buttonText}
-      &lt;/Button&gt;
-    &lt;/Cell&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
   )
 }</code></pre>
     </section>
@@ -230,15 +243,21 @@
     <section class="slide black">
       <h2>Какой-то компонент Screen</h2>
 
-      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = () => {
-  const cardId = /*  */;
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardId = <span class="hljs-comment">/*  */</span>;
   
-  return (
-    &lt;Container className="screen"&gt;
-      &lt;Card cardId={cardId} /&gt;
-    &lt;/Container&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"screen"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> <span class="hljs-attr">cardId</span>=<span class="hljs-string">{cardId}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 }</code></pre>
+    </section>
+
+    <section class="slide black">
+      <h2>Текущая структура</h2>
+
+      <img class="cover" src="/assets/common.svg" style="width: 50%" />
     </section>
 
     <section class="slide black">
@@ -250,42 +269,42 @@
 
       <div class="columns two">
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ cardId }) =&gt; {
-  const title = /*  */;
-  const buttonText = /*  */;
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ cardId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = <span class="hljs-comment">/*  */</span>;
+  <span class="hljs-keyword">const</span> buttonText = <span class="hljs-comment">/*  */</span>;
 
-  const onClick = () =&gt; {/*  */};
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onClick</span> = (<span class="hljs-params"></span>) =&gt; {<span class="hljs-comment">/*  */</span>};
 
-  return (
-    &lt;Cell className="container"&gt;
-      &lt;Heading className="title" level={2}&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span>&gt;</span>
         {title}
-      &lt;/Heading&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
 
-      &lt;Button onClick={onClick} className="button"&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
         {buttonText}
-      &lt;/Button&gt;
-    &lt;/Cell&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
   )
 }</code></pre>
         </div>
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">const CardAnother = ({ cardId }) =&gt; {
-  const title = /*  */;
-  const buttonText = /*  */;
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">CardAnother</span> = (<span class="hljs-params">{ cardId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = <span class="hljs-comment">/*  */</span>;
+  <span class="hljs-keyword">const</span> buttonText = <span class="hljs-comment">/*  */</span>;
 
-  const onClick = () =&gt; {/*  */};
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onClick</span> = (<span class="hljs-params"></span>) =&gt; {<span class="hljs-comment">/*  */</span>};
 
-  return (
-    &lt;Content&gt;
-      &lt;Header  level={2}&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Content</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Header</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span>&gt;</span>
         {title}
-      &lt;/Heading&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
 
-      &lt;Button onClick={onClick} variant="primary" fullWidth&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span>&gt;</span>
         {buttonText}
-      &lt;/Button&gt;
-    &lt;/Content&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Content</span>&gt;</span></span>
   )
 }</code></pre>
         </div>
@@ -301,17 +320,24 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
-        Вынос логики из&nbsp;компонента (hook&nbsp;/ composable&nbsp;/ service)
+      <h2 class="shout" style="font-size: 100px">
+        Вынос логики из&nbsp;компонента<br />
+        <span style="font-size: 80px"
+          >hook&nbsp;/ composable&nbsp;/ service</span
+        >
       </h2>
     </section>
 
     <section class="slide black">
       <h2>Вынос логики в&nbsp;хук</h2>
 
-      <pre><code class="hljs language-typescript nm">const useCardProps = () =&gt; {
-  /*  */
-  return { title, onClick, buttonText };
+      <pre><code class="hljs language-typescript font-size-20 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">useCardProps</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = <span class="hljs-comment">/*  */</span>;
+  <span class="hljs-keyword">const</span> buttonText = <span class="hljs-comment">/*  */</span>;
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">onClick</span> = (<span class="hljs-params"></span>) =&gt; {<span class="hljs-comment">/*  */</span>};
+
+  <span class="hljs-keyword">return</span> { title, onClick, buttonText };
 };</code></pre>
     </section>
 
@@ -319,34 +345,34 @@
       <h2>Использование хука</h2>
 
       <div class="columns two">
-        <pre><code class="hljs language-typescript nm font-size-10">const Card = ({ cardId }) =&gt; {
-    const { title, onClick, buttonText } = useCardProps();
+        <pre><code class="hljs language-typescript nm font-size-10" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ cardId }</span>) =&gt; {
+    <span class="hljs-keyword">const</span> { title, onClick, buttonText } = <span class="hljs-title function_">useCardProps</span>();
   
-    return (
-      &lt;Cell className="container"&gt;
-        &lt;Heading className="title"&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span>&gt;</span>
           {title}
-        &lt;/Heading&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
   
-        &lt;Button onClick={onClick} className="button"&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
           {buttonText}
-        &lt;/Button&gt;
-      &lt;/Cell&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
     )
   }</code></pre>
-        <pre><code class="hljs language-typescript nm font-size-10">const CardAnother = ({ cardId }) =&gt; {
-    const { title, onClick, buttonText } = useCardProps();
+        <pre><code class="hljs language-typescript nm font-size-10" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">CardAnother</span> = (<span class="hljs-params">{ cardId }</span>) =&gt; {
+    <span class="hljs-keyword">const</span> { title, onClick, buttonText } = <span class="hljs-title function_">useCardProps</span>();
   
-    return (
-      &lt;Content&gt;
-        &lt;Header  level={2}&gt;
+    <span class="hljs-keyword">return</span> (
+      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Content</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Header</span>  <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span>&gt;</span>
           {title}
-        &lt;/Heading&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
   
-        &lt;Button onClick={onClick} variant="primary" fullWidth&gt;
+        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span>&gt;</span>
           {buttonText}
-        &lt;/Button&gt;
-      &lt;/Content&gt;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Content</span>&gt;</span></span>
     )
   }</code></pre>
       </div>
@@ -361,13 +387,15 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
-        Headless&nbsp;&mdash; компоненты с&nbsp;логикой, но&nbsp;без стилизации
+      <h2 class="shout" style="font-size: 100px">
+        Headless&nbsp;— компоненты с&nbsp;логикой, но&nbsp;без стилизации
       </h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Обычно стили передаются через className</h2>
+      <h2 class="shout" style="font-size: 100px">
+        Обычно стили передаются через <span class="hljs-attr">className</span>
+      </h2>
     </section>
 
     <section class="slide black">
@@ -385,19 +413,19 @@
     <section class="slide black">
       <h2>Не&nbsp;headless лейаут</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
-  const { title, onClick, buttonText } = useCardProps(itemId);
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ itemId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> { title, onClick, buttonText } = <span class="hljs-title function_">useCardProps</span>(itemId);
 
-  return (
-    &lt;Cell className="container"&gt;
-      &lt;Heading className="title" level={2}&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span>&gt;</span>
         {title}
-      &lt;/Heading&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span>
 
-      &lt;Button onClick={onClick} variant="primary" fullWidth className="button"&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
         {buttonText}
-      &lt;/Button&gt;
-    &lt;/Cell&gt;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -405,15 +433,15 @@
     <section class="slide black">
       <h2>Headless лейаут</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
-  const { title, onClick, buttonText } = useCardProps(itemId);
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ itemId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> { title, onClick, buttonText } = <span class="hljs-title function_">useCardProps</span>(itemId);
 
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -426,32 +454,30 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
-        Контракт&nbsp;&mdash; тип пропсов, которые будут переданы
-      </h2>
+      <h2 class="shout">Контракт&nbsp;— тип пропсов, которые будут переданы</h2>
     </section>
 
     <section class="slide black">
       <h2>Пример контракта</h2>
 
-      <pre><code class="hljs language-typescript">type Title = ComponentType&lt;TitleProps&gt;;</code></pre>
+      <pre><code class="hljs language-typescript" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Title</span> = <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">TitleProps</span>&gt;;</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Компоненты для headless лейаута</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const CardContainer = ({ children }) =&gt; (
-  &lt;Cell className="container"&gt;{children}&lt;/Cell&gt;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">CardContainer</span> = (<span class="hljs-params">{ children }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>{children}<span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
 );
-const CardTitle = ({ children }) =&gt; (
-  &lt;Heading level={2} className="title"&gt;
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">CardTitle</span> = (<span class="hljs-params">{ children }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span>&gt;</span>
     {children}
-  &lt;/Heading&gt;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span></span>
 );
-const CardTitle = ({ onClick, children }) =&gt; (
-  &lt;Button onClick={onClick} variant="primary" fullWidth className="button"&gt;
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">CardTitle</span> = (<span class="hljs-params">{ onClick, children }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
     {children}
-  &lt;/Button&gt;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
 );</code></pre>
     </section>
 
@@ -465,15 +491,15 @@ const CardTitle = ({ onClick, children }) =&gt; (
 
     <section class="slide black">
       <h2>Card тоже токен</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = ({ itemId }) =&gt; {
-  const { title, onClick, buttonText } = useCardProps(itemId);
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ itemId }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> { title, onClick, buttonText } = <span class="hljs-title function_">useCardProps</span>(itemId);
 
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -491,15 +517,15 @@ const CardTitle = ({ onClick, children }) =&gt; (
     </section>
 
     <section class="slide black">
-      <h2>Card&nbsp;&mdash; это контракт</h2>
+      <h2>Card&nbsp;— это контракт</h2>
 
-      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = () => {
-  const cardId = /*  */;
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardId = <span class="hljs-comment">/*  */</span>;
   
-  return (
-    &lt;Container&gt;
-      &lt;Card cardId={cardId} /&gt;
-    &lt;/Container&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> <span class="hljs-attr">cardId</span>=<span class="hljs-string">{cardId}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 }</code></pre>
     </section>
@@ -515,13 +541,11 @@ const CardTitle = ({ onClick, children }) =&gt; (
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Оставим лейаут &laquo;глупым&raquo;</h2>
+      <h2 class="shout">Оставим лейаут «глупым»</h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
-        Глупый&nbsp;&mdash; отвечает только за&nbsp;отображение
-      </h2>
+      <h2 class="shout">Глупый&nbsp;— отвечает только за&nbsp;отображение</h2>
     </section>
 
     <section class="slide black">
@@ -531,24 +555,25 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Данные как пропсы</h2>
 
-      <pre><code class="hljs language-typescript font-size-16 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ title, onClick, buttonText }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
+
     <section class="slide black">
       <h2>Данные как пропсы</h2>
 
-      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = ({ cardProps }) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Card {...cardProps} /&gt;
-    &lt;/Container&gt;
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ cardProps }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -567,19 +592,19 @@ const CardTitle = ({ onClick, children }) =&gt; (
 
     <section class="slide black">
       <h2>Провайдер данных</h2>
-      <pre><code class="hljs language-typescript nm">const ScreenDataProvider = () =&gt; {
-  const cardProps = useCardProps();
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
-  return &lt;Screen cardProps={cardProps} /&gt;;
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Screen</span> <span class="hljs-attr">cardProps</span>=<span class="hljs-string">{cardProps}</span> /&gt;</span></span>;
 };</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Локальный провайдер данных</h2>
-      <pre><code class="hljs language-typescript  nm">const CardDataProvider = () =&gt; {
-  const cardProps = useCardProps();
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">CardDataProvider</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
-  return &lt;Card {...cardProps} /&gt;;
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} /&gt;</span></span>;
 };
 </code></pre>
     </section>
@@ -598,28 +623,28 @@ const CardTitle = ({ onClick, children }) =&gt; (
 
     <section class="slide black">
       <h2>Конфиг для Card</h2>
-      <pre><code class="hljs language-typescript nm">const components = {
-  card: {
-    Container: CardContainer,
-    Title: CardTitle,
-    Button: CardButton,
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> components = {
+  <span class="hljs-attr">card</span>: {
+    <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">CardContainer</span>,
+    <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">CardTitle</span>,
+    <span class="hljs-title class_">Button</span>: <span class="hljs-title class_">CardButton</span>,
   },
 };</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Извлечение токенов в&nbsp;Card</h2>
-      <pre><code class="hljs language-typescript font-size-14 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
-  const {
-    card: { Container, Title, Button },
-  } = useContext(ComponentsContext);
+      <pre><code class="hljs language-typescript font-size-14 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ title, onClick, buttonText }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> {
+    <span class="hljs-attr">card</span>: { <span class="hljs-title class_">Container</span>, <span class="hljs-title class_">Title</span>, <span class="hljs-title class_">Button</span> },
+  } = <span class="hljs-title function_">useContext</span>(<span class="hljs-title class_">ComponentsContext</span>);
 
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -627,15 +652,15 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Конфиг для Screen</h2>
 
-      <pre><code class="hljs language-typescript font-size-14 nm">const components = {
-  card: {
-    Container: CardContainer,
-    Title: CardTitle,
-    Button: CardButton,
+      <pre><code class="hljs language-typescript font-size-14 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> components = {
+  <span class="hljs-attr">card</span>: {
+    <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">CardContainer</span>,
+    <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">CardTitle</span>,
+    <span class="hljs-title class_">Button</span>: <span class="hljs-title class_">CardButton</span>,
   },
-  screen: {
-    Card: Card,
-    Container: ScreenContainer,
+  <span class="hljs-attr">screen</span>: {
+    <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">Card</span>,
+    <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">ScreenContainer</span>,
   },
 };
 </code></pre>
@@ -644,15 +669,15 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Извлечение токенов в&nbsp;Screen</h2>
 
-      <pre><code class="hljs language-typescript font-size-16 nm">const Screen = ({ cardProps }) =&gt; {
-  const {
-    screen: { Container, Card },
-  } = useContext(ComponentsContext);
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ cardProps }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> {
+    <span class="hljs-attr">screen</span>: { <span class="hljs-title class_">Container</span>, <span class="hljs-title class_">Card</span> },
+  } = <span class="hljs-title function_">useContext</span>(<span class="hljs-title class_">ComponentsContext</span>);
 
-  return (
-    &lt;Container&gt;
-      &lt;Card {...cardProps} /&gt;
-    &lt;/Container&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -667,17 +692,17 @@ const CardTitle = ({ onClick, children }) =&gt; (
 
     <section class="slide black">
       <h2>Card берет конкретные токены</h2>
-      <pre><code class="hljs language-typescript font-size-14 nm">const Card = ({ title, onClick, buttonText }) =&gt; {
-  const {
-    card: { Container, Title, Button },
-  } = useContext(ComponentsContext);
+      <pre><code class="hljs language-typescript font-size-14 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ title, onClick, buttonText }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> {
+    <span class="hljs-attr">card</span>: { <span class="hljs-title class_">Container</span>, <span class="hljs-title class_">Title</span>, <span class="hljs-title class_">Button</span> },
+  } = <span class="hljs-title function_">useContext</span>(<span class="hljs-title class_">ComponentsContext</span>);
 
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -689,15 +714,15 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Card лежит в&nbsp;том&nbsp;же конфиге что и&nbsp;его части</h2>
 
-      <pre><code class="hljs language-typescript font-size-14 nm">const components = {
-  card: {
-    Container: CardContainer,
-    Title: CardTitle,
-    Button: CardButton,
+      <pre><code class="hljs language-typescript font-size-14 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> components = {
+  <span class="hljs-attr">card</span>: {
+    <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">CardContainer</span>,
+    <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">CardTitle</span>,
+    <span class="hljs-title class_">Button</span>: <span class="hljs-title class_">CardButton</span>,
   },
-  screen: {
-    Card: Card,
-    Container: ScreenContainer,
+  <span class="hljs-attr">screen</span>: {
+    <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">Card</span>,
+    <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">ScreenContainer</span>,
   },
 };
 </code></pre>
@@ -714,7 +739,7 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Токены как пропсы в&nbsp;Card</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const HeadlessCard = ({
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessCard</span> = (<span class="hljs-params">{
   title,
   onClick,
   buttonText,
@@ -722,36 +747,36 @@ const CardTitle = ({ onClick, children }) =&gt; (
   Container,
   Title,
   Button,
-}) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+}</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Передача токенов в&nbsp;Card</h2>
-      <pre><code class="hljs language-typescript nm">const Card = ({ props }) =&gt; (
-  &lt;HeadlessCard
-    {...props}
-    Container={CardContainer}
-    Title={CardTitle}
-    Button={CardButton}
-  /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ props }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessCard</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{CardContainer}</span>
+    <span class="hljs-attr">Title</span>=<span class="hljs-string">{CardTitle}</span>
+    <span class="hljs-attr">Button</span>=<span class="hljs-string">{CardButton}</span>
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Токены как пропсы в&nbsp;Screen</h2>
-      <pre><code class="hljs language-typescript nm">const HeadlessScreen = ({ cardProps, Container, Card }) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Card {...cardProps} /&gt;
-    &lt;/Container&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessScreen</span> = (<span class="hljs-params">{ cardProps, Container, Card }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -759,13 +784,13 @@ const CardTitle = ({ onClick, children }) =&gt; (
     <section class="slide black">
       <h2>Передача Card в&nbsp;Screen</h2>
 
-      <pre><code class="hljs language-typescript  nm">const Screen = (props) =&gt; (
-  &lt;HeadlessScreen {...props} Card={Card} Container={ScreenContainer} /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">props</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessScreen</span> {<span class="hljs-attr">...props</span>} <span class="hljs-attr">Card</span>=<span class="hljs-string">{Card}</span> <span class="hljs-attr">Container</span>=<span class="hljs-string">{ScreenContainer}</span> /&gt;</span></span>
 );</code></pre>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Собранный компонент&nbsp;&mdash; блок</h2>
+      <h2 class="shout">Собранный компонент&nbsp;— блок</h2>
     </section>
 
     <section class="slide black">
@@ -773,11 +798,11 @@ const CardTitle = ({ onClick, children }) =&gt; (
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Передача лейаута в&nbsp;провайдер данных</h2>
-      <pre><code class="hljs language-typescript  nm">const ScreenDataProvider = ({ ScreenLayout }) =&gt; {
-  const cardProps = useCardProps();
+      <h2>Передача лейаута в&nbsp;провайдер данных</h2>
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params">{ ScreenLayout }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
-  return &lt;ScreenLayout cardProps={cardProps} /&gt;;
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenLayout</span> <span class="hljs-attr">cardProps</span>=<span class="hljs-string">{cardProps}</span> /&gt;</span></span>;
 };</code></pre>
     </section>
 
@@ -787,24 +812,24 @@ const CardTitle = ({ onClick, children }) =&gt; (
 
     <section class="slide black">
       <h2>Декларирование модуля</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">declare module '@tokens' {
-  export const Container: FClt;ContainerPropsgt;;
-  export const Title: FClt;TitlePropsgt;;
-  export const Button: FClt;ButtonPropsgt;;
+      <pre><code class="hljs language-typescript font-size-20 nm" data-highlighted="yes"><span class="hljs-keyword">declare</span> <span class="hljs-variable language_">module</span> <span class="hljs-string">'@tokens'</span> {
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">Container</span>: <span class="hljs-variable constant_">ComponentType</span>&lt;<span class="hljs-title class_">ContainerProps</span>&gt;;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span>: <span class="hljs-variable constant_">ComponentType</span>&lt;<span class="hljs-title class_">TitleProps</span>&gt;;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">Button</span>: <span class="hljs-variable constant_">ComponentType</span>&lt;<span class="hljs-title class_">ButtonProps</span>&gt;;
 }</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Импорт</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">import { Container, Title, Button } from '@tokens';
+      <pre><code class="hljs language-typescript font-size-20 nm" data-highlighted="yes"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Container</span>, <span class="hljs-title class_">Title</span>, <span class="hljs-title class_">Button</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'@tokens'</span>;
 
-const Card = ({ title, onClick, buttonText }) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Title&gt;{title}&lt;/Title&gt;
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ title, onClick, buttonText }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
 
-      &lt;Button onClick={onClick}&gt;{buttonText}&lt;/Button&gt;
-    &lt;/Container&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span>&gt;</span>{buttonText}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };
 </code></pre>
@@ -812,10 +837,10 @@ const Card = ({ title, onClick, buttonText }) =&gt; {
 
     <section class="slide black">
       <h2>Подстановка модуля</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">export default {
-  resolve: {
-    alias: {
-      '@tokens': path.join(/* ... */),
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">resolve</span>: {
+    <span class="hljs-attr">alias</span>: {
+      <span class="hljs-string">'@tokens'</span>: path.<span class="hljs-title function_">join</span>(<span class="hljs-comment">/* ... */</span>),
     },
   },
 };
@@ -855,21 +880,19 @@ const Card = ({ title, onClick, buttonText }) =&gt; {
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Model View View-Model</h2>
+      <h2 class="shout" style="font-size: 100px">Model View View-Model</h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
-        Model&nbsp;&mdash; хранение, загрузка, обработка данных
-      </h2>
+      <h2 class="shout">Model&nbsp;— хранение, загрузка, обработка данных</h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">View&nbsp;&mdash; отображение данных</h2>
+      <h2 class="shout">View&nbsp;— отображение данных</h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">View-Model&nbsp;&mdash; связующие звено</h2>
+      <h2 class="shout">View-Model&nbsp;— связующие звено</h2>
     </section>
 
     <section class="slide black">
@@ -893,7 +916,7 @@ const Card = ({ title, onClick, buttonText }) =&gt; {
     </section>
 
     <section class="slide black">
-      <h2 class="shout">MVVM&nbsp;&mdash; разделение зон ответственности</h2>
+      <h2 class="shout">MVVM&nbsp;— разделение зон ответственности</h2>
     </section>
 
     <section class="slide black">
@@ -914,24 +937,24 @@ const Card = ({ title, onClick, buttonText }) =&gt; {
 
     <section class="slide black">
       <h2>Контракты для Card</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">type CardButtonProps = { onClick: () =&gt; void; children: JSX.Element };
-type CardTitleProps = { children: JSX.Element };
-type CardContainerProps = { children: JSX.Element };
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">CardButtonProps</span> = { <span class="hljs-attr">onClick</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>; <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">CardTitleProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">CardContainerProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
 
-type CardProps = {
-  title: string;
-  buttonText: string;
-  onClick: () =&gt; void;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">CardProps</span> = {
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">buttonText</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">onClick</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>;
 };
 </code></pre>
     </section>
 
     <section class="slide black">
       <h2>Контракты для Screen</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">type ScreenContainerProps = { children: JSX.Element };
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ScreenContainerProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
 
-type ScreenProps = {
-  cardProps: CardProps;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">ScreenProps</span> = {
+  <span class="hljs-attr">cardProps</span>: <span class="hljs-title class_">CardProps</span>;
 };</code></pre>
     </section>
 
@@ -941,15 +964,15 @@ type ScreenProps = {
 
     <section class="slide black">
       <h2>Токены</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm">const CardButton: ComponentType&lt;CardButtonProps&gt;;
-const CardTitle: ComponentType&lt;CardTitleProps&gt;;
-const CardContainer: ComponentType&lt;CardContainerProps&gt;;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title class_">CardButton</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardButtonProps</span>&gt;;
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">CardTitle</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardTitleProps</span>&gt;;
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">CardContainer</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardContainerProps</span>&gt;;
 
-const Card: ComponentType&lt;CardProps&gt;;
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardProps</span>&gt;;
 
-const ScreenContainer: ComponentType&lt;ScreenContainerProps&gt;;
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">ScreenContainer</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">ScreenContainerProps</span>&gt;;
 
-const Screen: ComponentType&lt;ScreenProps&gt;;</code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Screen</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">ScreenProps</span>&gt;;</code></pre>
     </section>
 
     <section class="slide black">
@@ -959,24 +982,24 @@ const Screen: ComponentType&lt;ScreenProps&gt;;</code></pre>
     <section class="slide black">
       <h2>Тип токенов для Headless лайатутов</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">type HeadlessCardComponents = {
-  Button: ComponentType&lt;CardButtonProps&gt;;
-  Title: ComponentType&lt;CardTitleProps&gt;;
-  Container: ComponentType&lt;CardContainerProps&gt;;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessCardComponents</span> = {
+  <span class="hljs-title class_">Button</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardButtonProps</span>&gt;;
+  <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardTitleProps</span>&gt;;
+  <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardContainerProps</span>&gt;;
 };
 
-type HeadlessScreenComponent = {
-  Container: ComponentType&lt;ScreenContainerProps&gt;;
-  Card: ComponenType&lt;CardProps&gt;;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessScreenComponent</span> = {
+  <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">ScreenContainerProps</span>&gt;;
+  <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">ComponenType</span>&lt;<span class="hljs-title class_">CardProps</span>&gt;;
 };</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Попсы Headless лейутов</h2>
 
-      <pre><code class="hljs language-typescript nm">type HeadlessCardProps = HeadlessCardComponents &amp;CardProps;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessCardProps</span> = <span class="hljs-title class_">HeadlessCardComponents</span> &amp;<span class="hljs-title class_">CardProps</span>;
 
-type HeadlessScreenProps = HeadlessScreenProps &amp;ScreenProps;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessScreenProps</span> = <span class="hljs-title class_">HeadlessScreenProps</span> &amp;<span class="hljs-title class_">ScreenProps</span>;
 </code></pre>
     </section>
 
@@ -991,23 +1014,23 @@ type HeadlessScreenProps = HeadlessScreenProps &amp;ScreenProps;
     <section class="slide black">
       <h2>Фича-флаг кастомизация</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = (props) =&gt; {
-  const CardButton = flag ? First : Second;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">props</span>) =&gt; {
+  <span class="hljs-keyword">const</span> <span class="hljs-title class_">CardButton</span> = flag ? <span class="hljs-title class_">First</span> : <span class="hljs-title class_">Second</span>;
 
-  return (
-    &lt;HeadlessCard
-      {...props}
-      Container={CardContainer}
-      Title={CardTitle}
-      Button={CardButton}
-    /&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessCard</span>
+      {<span class="hljs-attr">...props</span>}
+      <span class="hljs-attr">Container</span>=<span class="hljs-string">{CardContainer}</span>
+      <span class="hljs-attr">Title</span>=<span class="hljs-string">{CardTitle}</span>
+      <span class="hljs-attr">Button</span>=<span class="hljs-string">{CardButton}</span>
+    /&gt;</span></span>
   );
 };
 
-const Screen = (props) =&gt; {
-  const Card = flag ? First : Second;
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">props</span>) =&gt; {
+  <span class="hljs-keyword">const</span> <span class="hljs-title class_">Card</span> = flag ? <span class="hljs-title class_">First</span> : <span class="hljs-title class_">Second</span>;
 
-  return &lt;HeadlessScreen {...props} Card={Card} Container={ScreenContainer} /&gt;;
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessScreen</span> {<span class="hljs-attr">...props</span>} <span class="hljs-attr">Card</span>=<span class="hljs-string">{Card}</span> <span class="hljs-attr">Container</span>=<span class="hljs-string">{ScreenContainer}</span> /&gt;</span></span>;
 };
 </code></pre>
     </section>
@@ -1031,18 +1054,18 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Сборный компонент Card</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Card = (props) =&gt; (
-  &lt;HeadlessCard
-    {...props}
-    Container={CardContainer}
-    Title={CardTitle}
-    Button={CardButton}
-  /&gt;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">props</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessCard</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{CardContainer}</span>
+    <span class="hljs-attr">Title</span>=<span class="hljs-string">{CardTitle}</span>
+    <span class="hljs-attr">Button</span>=<span class="hljs-string">{CardButton}</span>
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">props&nbsp;&mdash; это js объект</h2>
+      <h2 class="shout">props&nbsp;— это js объект</h2>
     </section>
 
     <section class="slide black">
@@ -1054,41 +1077,41 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Перезапись Title</h2>
 
-      <pre><code class="hljs language-typescript nm">const Card = (props) =&gt; (
-  &lt;HeadlessCard
-    {...props}
-    Container={CardContainer}
-    Title={CardTitle}
-    Button={CardButton}
-    Title={AnotherTitle}
-  /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">props</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessCard</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{CardContainer}</span>
+    <span class="hljs-attr">Title</span>=<span class="hljs-string">{CardTitle}</span>
+    <span class="hljs-attr">Button</span>=<span class="hljs-string">{CardButton}</span>
+    <span class="hljs-attr">Title</span>=<span class="hljs-string">{AnotherTitle}</span>
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Перезапись токенов Card</h2>
 
-      <pre><code class="hljs language-typescript  nm">const Card = ({ overrides, ...props }) =&gt; (
-  &lt;HeadlessCard
-    {...props}
-    Container={CardContainer}
-    Title={CardTitle}
-    Button={CardButton}
-    {...overrides}
-  /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Card</span> = (<span class="hljs-params">{ overrides, ...props }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessCard</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{CardContainer}</span>
+    <span class="hljs-attr">Title</span>=<span class="hljs-string">{CardTitle}</span>
+    <span class="hljs-attr">Button</span>=<span class="hljs-string">{CardButton}</span>
+    {<span class="hljs-attr">...overrides</span>}
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
     <section class="slide black">
       <h2>Передача overrides в&nbsp;Card</h2>
 
-      <pre><code class="hljs language-typescript  nm">(
-  &lt;Card
-    {...cardProps}
-    overrides={{
-      Title: AnotherTitle,
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes">(
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Card</span>
+    {<span class="hljs-attr">...cardProps</span>}
+    <span class="hljs-attr">overrides</span>=<span class="hljs-string">{{</span>
+      <span class="hljs-attr">Title:</span> <span class="hljs-attr">AnotherTitle</span>,
     }}
-  /&gt;
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
@@ -1107,12 +1130,12 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Screen зависит от&nbsp;Card</h2>
 
-      <pre><code class="hljs language-typescript nm">const Screen = (props) =&gt; (
-  &lt;HeadlessScreen
-    {...props}
-    Card={Card}
-    Container={ScreenContainer}
-  /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">props</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessScreen</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Card</span>=<span class="hljs-string">{Card}</span>
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{ScreenContainer}</span>
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
@@ -1123,13 +1146,13 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Переопределение токенов Screen</h2>
 
-      <pre><code class="hljs language-typescript nm">const Screen = ({ overrides, ...props }) =&gt; (
-  &lt;HeadlessScreen
-    {...props}
-    Card={Card}
-    Container={ScreenContainer}
-    {...overrides}
-  /&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ overrides, ...props }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessScreen</span>
+    {<span class="hljs-attr">...props</span>}
+    <span class="hljs-attr">Card</span>=<span class="hljs-string">{Card}</span>
+    <span class="hljs-attr">Container</span>=<span class="hljs-string">{ScreenContainer}</span>
+    {<span class="hljs-attr">...overrides</span>}
+  /&gt;</span></span>
 );</code></pre>
     </section>
 
@@ -1152,10 +1175,10 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Передача токенов для Card в&nbsp;Screen</h2>
 
-      <pre><code class="hljs language-typescript nm">&lt;Screen
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes">&lt;<span class="hljs-title class_">Screen</span>
   overrides={{
-    Card: {
-      Title: AnotherTitle,
+    <span class="hljs-title class_">Card</span>: {
+      <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">AnotherTitle</span>,
     },
   }}
 /&gt;;
@@ -1165,11 +1188,11 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Перезаписи токенов Card в&nbsp;HeadlessScreen</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const HeadlessScreen = ({ cardProps, Container, Card, overrides }) =&gt; {
-  return (
-    &lt;Container&gt;
-      &lt;Card {...cardProps} overrides={overrides.Card} /&gt;
-    &lt;/Container&gt;
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessScreen</span> = (<span class="hljs-params">{ cardProps, Container, Card, overrides }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} <span class="hljs-attr">overrides</span>=<span class="hljs-string">{overrides.Card}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -1181,18 +1204,18 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2 class="shout">Разделение overrides на&nbsp;части</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const Screen = ({ overrides, ...props }) =&gt; {
-  const { tokensOverrides, tokensPartsOverrides } =
-    getComponentsAndOverrides(overrides);
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ overrides, ...props }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> { tokensOverrides, tokensPartsOverrides } =
+    <span class="hljs-title function_">getComponentsAndOverrides</span>(overrides);
 
-  return (
-    &lt;HeadlessScreen
-      {...props}
-      Card={Card}
-      Container={ScreenContainer}
-      {...tokensOverrides}
-      overrides={tokensPartsOverrides}
-    /&gt;
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HeadlessScreen</span>
+      {<span class="hljs-attr">...props</span>}
+      <span class="hljs-attr">Card</span>=<span class="hljs-string">{Card}</span>
+      <span class="hljs-attr">Container</span>=<span class="hljs-string">{ScreenContainer}</span>
+      {<span class="hljs-attr">...tokensOverrides</span>}
+      <span class="hljs-attr">overrides</span>=<span class="hljs-string">{tokensPartsOverrides}</span>
+    /&gt;</span></span>
   );
 };</code></pre>
     </section>
@@ -1202,12 +1225,12 @@ const Screen = (props) =&gt; {
 
       <div class="columns two">
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">getComponentsAndOverrides({ Card: AnotherCard });</code></pre>
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">AnotherCard</span> });</code></pre>
         </div>
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">{
-  tokensOverrides: { Card: AnotherCard },
-  tokensPartsOverrides: {},
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes">{
+  <span class="hljs-attr">tokensOverrides</span>: { <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">AnotherCard</span> },
+  <span class="hljs-attr">tokensPartsOverrides</span>: {},
 };</code></pre>
         </div>
       </div>
@@ -1218,12 +1241,12 @@ const Screen = (props) =&gt; {
 
       <div class="columns two">
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">getComponentsAndOverrides({ Card: { Title } });</code></pre>
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="hljs-title class_">Card</span>: { <span class="hljs-title class_">Title</span> } });</code></pre>
         </div>
         <div>
-          <pre><code class="hljs language-typescript font-size-10 nm">{
-  tokensOverrides: {},
-  tokensPartsOverrides: { Card: { Title } },
+          <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes">{
+  <span class="hljs-attr">tokensOverrides</span>: {},
+  <span class="hljs-attr">tokensPartsOverrides</span>: { <span class="hljs-title class_">Card</span>: { <span class="hljs-title class_">Title</span> } },
 };</code></pre>
         </div>
       </div>
@@ -1256,26 +1279,26 @@ const Screen = (props) =&gt; {
     <section class="slide black">
       <h2>Логика в&nbsp;ui</h2>
 
-      <pre><code class="hljs language-typescript nm">const HeadlessCard = ({
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessCard</span> = (<span class="hljs-params">{
   city,
   district,
   street,
   /*  */
-}) =&gt; {
-  const title = [city, district, street].filter(Boolean).join(', ');
+}</span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = [city, district, street].<span class="hljs-title function_">filter</span>(<span class="hljs-title class_">Boolean</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">', '</span>);
 
-  return (/*  */);
+  <span class="hljs-keyword">return</span> (<span class="hljs-comment">/*  */</span>);
 };</code></pre>
+    </section>
 
     <section class="slide black">
       <h2>Логика вне&nbsp;ui</h2>
 
-      <pre><code class="hljs language-typescript nm">const useCardProps = () =&gt; {
-  const title = [city, district, street].filter(Boolean).join(', ');
-  /*  */
-  return { title, onClick, buttonText };
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">useCardProps</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> title = [city, district, street].<span class="hljs-title function_">filter</span>(<span class="hljs-title class_">Boolean</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">', '</span>);
+  <span class="hljs-comment">/*  */</span>
+  <span class="hljs-keyword">return</span> { title, onClick, buttonText };
 };</code></pre>
-      
     </section>
 
     <section class="slide black">
@@ -1289,31 +1312,29 @@ const Screen = (props) =&gt; {
     </section>
 
     <section class="slide black">
-      <h2 >Через флаг</h2>
+      <h2>Через флаг</h2>
 
-      <pre><code class="hljs language-typescript nm">const HeadlessCard = ({
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessCard</span> = (<span class="hljs-params">{
   /*  */
   hidden,
   /*  */
-}) =&gt; {
-  if (hidden) return null;
+}</span>) =&gt; {
+  <span class="hljs-keyword">if</span> (hidden) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
 
-  return (/*  */);
+  <span class="hljs-keyword">return</span> (<span class="hljs-comment">/*  */</span>);
 };</code></pre>
-      
     </section>
 
     <section class="slide black">
       <h2>Через данные</h2>
 
-      <pre><code class="hljs language-typescript  nm">const HeadlessScreen = ({ cardProps }) =&gt; {
-  return (
-    &lt;Container&gt;
-      {cardProps ? &lt;Card {...cardProps} /&gt; : null}
-    &lt;/Container&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessScreen</span> = (<span class="hljs-params">{ cardProps }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
+      {cardProps ? <span class="hljs-tag">&lt;<span class="hljs-name">Card</span> {<span class="hljs-attr">...cardProps</span>} /&gt;</span> : null}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 }</code></pre>
-      
     </section>
 
     <section class="slide black">
@@ -1323,29 +1344,27 @@ const Screen = (props) =&gt; {
     </section>
 
     <section class="slide black">
-      <h2 >Через флаг</h2>
+      <h2>Через флаг</h2>
 
-      <pre><code class="hljs language-typescript nm">const HeadlessList = ({ items, Container, ListItem }) =&gt; {
-  return (
-    &lt;Container&gt;
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HeadlessList</span> = (<span class="hljs-params">{ items, Container, ListItem }</span>) =&gt; {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Container</span>&gt;</span>
       {items.map(item =&gt; item.hidden
           ? null
-          : &lt;ListItem {...item} /&gt;)
+          : <span class="hljs-tag">&lt;<span class="hljs-name">ListItem</span> {<span class="hljs-attr">...item</span>} /&gt;</span>)
       }
       {/*  */}
-    &lt;/Container&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Container</span>&gt;</span></span>
   );
 };</code></pre>
-      
     </section>
 
     <section class="slide black">
-      <h2 >Через данные</h2>
+      <h2>Через данные</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const useListProps = () =&gt; {
-  return items.filter(item =&gt; !item.hidden)
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">useListProps</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">return</span> items.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> !item.<span class="hljs-property">hidden</span>)
 }</code></pre>
-      
     </section>
 
     <section class="slide black">
@@ -1355,16 +1374,13 @@ const Screen = (props) =&gt; {
     </section>
 
     <section class="slide black">
-      <h2 >
-        Лейаут&nbsp;&mdash; это контракт
-      </h2>
+      <h2>Лейаут&nbsp;— это контракт</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm">const ScreenDataProvider = ({ ScreenLayout }) =&gt; {
-  const cardProps = useCardProps();
+      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params">{ ScreenLayout }</span>) =&gt; {
+  <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
-  return &lt;ScreenLayout cardProps={cardProps} /&gt;;
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenLayout</span> <span class="hljs-attr">cardProps</span>=<span class="hljs-string">{cardProps}</span> /&gt;</span></span>;
 };</code></pre>
-      
     </section>
 
     <section class="slide black">
