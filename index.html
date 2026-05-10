@@ -187,7 +187,7 @@
       </h2>
     </section>
 
-    <section class="slide black">
+    <section class="slide black clear">
       <div class="columns two">
         <div>
           <h2>Андрей Тараненко</h2>
@@ -195,7 +195,7 @@
           <ul>
             <li>Представляю холдинг&nbsp;T1</li>
             <li>6&nbsp;лет во&nbsp;frontend&rsquo;е</li>
-            <li>Сейчас в платформенной команде крупного банка</li>
+            <li>Сейчас в платёформенной команде крупного банка</li>
             <li>
               Люблю сложную типизацию на&nbsp;<span class="hljs-number"
                 >TypeScript</span
@@ -214,7 +214,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Извините</h2>
+      <h2 class="shout">Готовьтесь</h2>
     </section>
 
     <section class="slide black">
@@ -457,7 +457,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Малейшее изменение нужно не&nbsp;потерять</h2>
+      <h2 class="shout">Малейшее изменение нужно синхронизировать</h2>
     </section>
 
     <section class="slide black">
@@ -646,17 +646,17 @@
       <h2>Компоненты для headless лейаута</h2>
 
       <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">CardContainer</span> = (<span class="hljs-params">{ children }</span>) =&gt; (
-  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span>&gt;</span>{children}<span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Cell</span> <span class="border-red"><span class="hljs-attr">className</span>=<span class="hljs-string">"container"</span></span>&gt;</span>{children}<span class="hljs-tag">&lt;/<span class="hljs-name">Cell</span>&gt;</span></span>
 );
 
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">CardTitle</span> = (<span class="hljs-params">{ children }</span>) =&gt; (
-  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span>&gt;</span>
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Heading</span> <span class="border-red"><span class="hljs-attr">level</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"title"</span></span>&gt;</span>
     {children}
   <span class="hljs-tag">&lt;/<span class="hljs-name">Heading</span>&gt;</span></span>
 );
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">CardTitle</span> = (<span class="hljs-params">{ onClick, children }</span>) =&gt; (
-  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span>&gt;</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">CardButton</span> = (<span class="hljs-params">{ onClick, children }</span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onClick}</span> <span class="border-red"><span class="hljs-attr">variant</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">fullWidth</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button"</span></span>&gt;</span>
     {children}
   <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
 );</code></pre>
@@ -1076,7 +1076,7 @@ Button,</span>
     </section>
 
     <section class="slide black">
-      <h2>Передача лейаута в&nbsp;провайдер данных</h2>
+      <h2>Пропс лейаута в&nbsp;провайдере данных</h2>
       <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params">{ <span class="hljs-name border-red">ScreenLayout</span> }</span>) =&gt; {
   <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
@@ -1085,11 +1085,21 @@ Button,</span>
     </section>
 
     <section class="slide black">
+      <h2>Передача лейаута в&nbsp;провайдер данных</h2>
+      <pre><code class="hljs language-typescript fz20 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenWidget</span> = (<span class="hljs-params"></span>) =&gt; (
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScreenDataProvider</span> {<span class="hljs-attr">...props</span>} <span class="hljs-attr">ScreenLayout</span>=<span class="hljs-string">{Screen}</span> /&gt;</span></span>
+);</code></pre>
+    </section>
+
+    <section class="slide black">
       <h2 class="shout">Buildtime</h2>
     </section>
 
     <section class="slide black">
-      <h2>Декларирование модуля</h2>
+      <h2>
+        Декларирование модуля в
+        <span class="hljs-variable constant_">tokens.d.ts</span>
+      </h2>
       <pre><code class="hljs language-typescript font-size-20 nm" data-highlighted="yes"><span class="hljs-keyword">declare</span> <span class="hljs-variable language_">module</span> <span class="hljs-string">'@tokens'</span> {
   <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">Container</span>: <span class="hljs-variable constant_">ComponentType</span>&lt;<span class="hljs-title class_">ContainerProps</span>&gt;;
   <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title class_">Title</span>: <span class="hljs-variable constant_">ComponentType</span>&lt;<span class="hljs-title class_">TitleProps</span>&gt;;
@@ -1263,7 +1273,7 @@ Button,</span>
 
       <pre
         id="cardContract"
-      ><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="tokens" style="display: inline-block;"><span class="hljs-keyword">type</span> <span class="hljs-title class_">CardButtonProps</span> = { <span class="hljs-attr">onClick</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>; <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
+      ><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="tokens" style="display: inline-block;"><span class="hljs-keyword">type</span> <span class="hljs-title class_">CardButtonProps</span> = { <span class="hljs-attr">onClick</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">void</span>; <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">CardTitleProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">CardContainerProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };</span>
 
@@ -1287,7 +1297,7 @@ Button,</span>
 
     <section class="slide black">
       <h2>Контракты для Screen</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ScreenContainerProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
+      <pre><code class="hljs language-typescript  nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ScreenContainerProps</span> = { <span class="hljs-attr">children</span>: <span class="hljs-variable constant_">JSX</span>.<span class="hljs-property">Element</span> };
 
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">ScreenProps</span> = {
   <span class="border-red"><span class="hljs-attr">cardProps</span>: <span class="hljs-title class_">CardProps</span>;</span>
@@ -1300,7 +1310,7 @@ Button,</span>
 
     <section class="slide black">
       <h2>Токены</h2>
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title class_">CardButton</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardButtonProps</span>&gt;;
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title class_">CardButton</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardButtonProps</span>&gt;;
 <span class="hljs-keyword">const</span> <span class="hljs-title class_">CardTitle</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardTitleProps</span>&gt;;
 <span class="hljs-keyword">const</span> <span class="hljs-title class_">CardContainer</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardContainerProps</span>&gt;;
 
@@ -1318,7 +1328,7 @@ Button,</span>
     <section class="slide black">
       <h2>Тип токенов для Headless лайатутов</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessCardComponents</span> = {
+      <pre><code class="hljs language-typescript font-size-16 nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HeadlessCardComponents</span> = {
   <span class="hljs-title class_">Button</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardButtonProps</span>&gt;;
   <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardTitleProps</span>&gt;;
   <span class="hljs-title class_">Container</span>: <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">CardContainerProps</span>&gt;;
@@ -1567,7 +1577,7 @@ Button,</span>
 
       <pre
         id="overridesSplit"
-      ><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ overrides, ...props }</span>) =&gt; {
+      ><code class="hljs language-typescript font-size-12 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Screen</span> = (<span class="hljs-params">{ overrides, ...props }</span>) =&gt; {
   <span class="hljs-keyword">const</span> <span class="result">{ tokensOverrides, tokensPartsOverrides }</span> =
     <span class="func"><span class="hljs-title function_">getComponentsAndOverrides</span>(overrides);</span>
 
@@ -1597,7 +1607,7 @@ Button,</span>
     <section class="slide black">
       <h2>Логика разделения overrides на&nbsp;части</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="border-red"><span class="hljs-title class_">Card</span>: <span class="hljs-title class_">AnotherCard</span></span> });
+      <pre><code class="hljs language-typescript fz20 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="border-red"><span class="hljs-title class_">Card</span>: <span class="hljs-title class_">AnotherCard</span></span> });
 
 {
   <span class="border-red"><span class="hljs-attr">tokensOverrides</span>: { <span class="hljs-title class_">Card</span>: <span class="hljs-title class_">AnotherCard</span> },</span>
@@ -1608,7 +1618,7 @@ Button,</span>
     <section class="slide black">
       <h2>Логика разделения overrides на&nbsp;части</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="hljs-title class_">Card</span>: <span class="border-red">{ <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">AnotherTitle</span> }</span> });
+      <pre><code class="hljs language-typescript fz20 nm" data-highlighted="yes"><span class="hljs-title function_">getComponentsAndOverrides</span>({ <span class="hljs-title class_">Card</span>: <span class="border-red">{ <span class="hljs-title class_">Title</span>: <span class="hljs-title class_">AnotherTitle</span> }</span> });
       
 {
   <span class="hljs-attr">tokensOverrides</span>: {},
@@ -1766,7 +1776,7 @@ Button,</span>
     <section class="slide black">
       <h2>Лейаут&nbsp;— это контракт</h2>
 
-      <pre><code class="hljs language-typescript font-size-10 nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params">{ ScreenLayout }</span>) =&gt; {
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">const</span> <span class="hljs-title function_">ScreenDataProvider</span> = (<span class="hljs-params">{ ScreenLayout }</span>) =&gt; {
   <span class="hljs-keyword">const</span> cardProps = <span class="hljs-title function_">useCardProps</span>();
 
   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name border-red">ScreenLayout</span> <span class="hljs-attr">cardProps</span>=<span class="hljs-string">{cardProps}</span> /&gt;</span></span>;
