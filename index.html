@@ -64,6 +64,10 @@
           background-repeat: no-repeat; */
         }
 
+        .lighter {
+          --dark-theme-grey: color-mix(var(--dark-theme-grey) 30%, #fff);
+        }
+
         h2 {
           color: var(--dark-theme-grey);
 
@@ -219,6 +223,8 @@
 
     <section class="slide black">
       <h2 class="shout">Местами придется поднапрячься</h2>
+
+      <img src="/assets/hard.png" class="cover bt05" />
     </section>
 
     <section class="slide black">
@@ -251,6 +257,8 @@
       <h2 class="shout">
         Примеры на&nbsp;<span class="hljs-attr">React</span>
       </h2>
+
+      <img src="/assets/frameworks.png" class="cover bt07" />
     </section>
 
     <section class="slide black">
@@ -371,6 +379,10 @@
     </section>
 
     <section class="slide black">
+      <h2 class="shout fz100">Стрелки&nbsp;&mdash; направление зависимости</h2>
+    </section>
+
+    <section class="slide black">
       <h2 class="shout">Вариант первый</h2>
     </section>
 
@@ -457,7 +469,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Малейшее изменение нужно синхронизировать</h2>
+      <h2 class="shout fz100">Малейшее изменение нужно синхронизировать</h2>
     </section>
 
     <section class="slide black">
@@ -529,17 +541,17 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Headless компоненты</h2>
+      <h2 class="shout fz100">Headless компоненты</h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout" style="font-size: 100px">
+      <h2 class="shout fz100">
         Headless&nbsp;— компоненты с&nbsp;логикой, но&nbsp;без стилизации
       </h2>
     </section>
 
     <section class="slide black">
-      <h2 class="shout" style="font-size: 100px">
+      <h2 class="shout fz100">
         Обычно стили передаются через <span class="hljs-attr">className</span>
       </h2>
     </section>
@@ -551,7 +563,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout" style="font-size: 100px">
+      <h2 class="shout fz100">
         Сделаем headless на&nbsp;уровне компонентов, а&nbsp;не&nbsp;стилей
       </h2>
     </section>
@@ -633,13 +645,17 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Контракт&nbsp;— тип пропсов, которые будут переданы</h2>
+      <h2 class="shout lighter">
+        Контракт&nbsp;— тип пропсов, которые будут переданы
+      </h2>
+
+      <img src="/assets/contract.png" class="cover width bt03" />
     </section>
 
     <section class="slide black">
       <h2>Пример контракта</h2>
 
-      <pre><code class="hljs language-typescript" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Title</span> = <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">TitleProps</span>&gt;;</code></pre>
+      <pre><code class="hljs language-typescript nm" data-highlighted="yes"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Title</span> = <span class="hljs-title class_">ComponentType</span>&lt;<span class="hljs-title class_">TitleProps</span>&gt;;</code></pre>
     </section>
 
     <section class="slide black">
@@ -667,9 +683,11 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
+      <h2 class="shout lighter">
         <span class="hljs-title function_">Card</span> по&nbsp;сути тоже токен
       </h2>
+
+      <img src="/assets/sientist.png" class="cover height bt05" />
     </section>
 
     <section class="slide black">
@@ -736,7 +754,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">
+      <h2 class="shout fz80">
         Если нужно заменить <span class="hljs-title function_">Card</span>,
         нужно дать доступ к&nbsp;данным
       </h2>
@@ -744,6 +762,8 @@
 
     <section class="slide black">
       <h2 class="shout">Оставим лейаут «глупым»</h2>
+
+      <img src="/assets/dumb.png" class="cover bt03" />
     </section>
 
     <section class="slide black">
@@ -947,7 +967,7 @@
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Рекурсивная зависимость</h2>
+      <h2 class="shout fz80">Циклическая зависимость</h2>
     </section>
 
     <section class="slide black">
@@ -969,6 +989,8 @@
 
     <section class="slide black">
       <h2 class="shout">Конфиг еще вернется в&nbsp;новом обличии</h2>
+
+      <img src="/assets/skeletor.png" class="cover width bt05" />
     </section>
 
     <section class="slide black">
@@ -1072,7 +1094,7 @@ Button,</span>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Пропс лейаута в&nbsp;провайдере данных</h2>
+      <h2 class="shout fz100">Пропс лейаута в&nbsp;провайдере данных</h2>
     </section>
 
     <section class="slide black">
@@ -1494,7 +1516,11 @@ Button,</span>
     </section>
 
     <section class="slide black">
-      <h2 class="shout">Можно сделать также как и&nbsp;Card</h2>
+      <h2 class="shout">
+        Можно сделать также как и&nbsp;<span class="hljs-title function_"
+          >Card</span
+        >
+      </h2>
     </section>
 
     <section class="slide black">

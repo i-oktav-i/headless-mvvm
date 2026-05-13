@@ -1,0 +1,1472 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как я перестал зависеть от дизайн-системы и изобрел MVVM</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shower/ribbon/styles/styles.css"
+    />
+    <style>
+      .caption h1 {
+        font-size: 32px;
+      }
+      .slide {
+        padding: 0;
+        background: #000;
+        overflow: hidden;
+      }
+      .slide::after {
+        display: none;
+      }
+      .slide__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #000;
+      }
+      .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: pre !important;
+        border: 0 !important;
+      }
+    </style>
+  </head>
+  <body class="shower list">
+    <header class="caption">
+      <h1>Как я перестал зависеть от дизайн-системы и изобрел MVVM</h1>
+      <p>
+        Экспорт из PowerPoint в Shower, 1:1 по количеству и порядку слайдов.
+      </p>
+    </header>
+    <section class="slide" id="slide-001">
+      <h2 class="visually-hidden">
+        Как я перестал зависеть от дизайн системы и изобрел MVVM
+      </h2>
+      <p class="visually-hidden">
+        Как я перестал зависеть от дизайн системы и изобрел MVVM 1
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-001.png"
+        alt="Как я перестал зависеть от дизайн системы и изобрел MVVM"
+      />
+    </section>
+    <section class="slide" id="slide-002">
+      <h2 class="visually-hidden">О чем пойдет речь?</h2>
+      <p class="visually-hidden">О чем пойдет речь? 2</p>
+      <img
+        class="slide__image"
+        src="assets/slide-002.png"
+        alt="О чем пойдет речь?"
+      />
+    </section>
+    <section class="slide" id="slide-003">
+      <h2 class="visually-hidden">Об MVVM, но не совсем</h2>
+      <p class="visually-hidden">Об MVVM, но не совсем 3</p>
+      <img
+        class="slide__image"
+        src="assets/slide-003.png"
+        alt="Об MVVM, но не совсем"
+      />
+    </section>
+    <section class="slide" id="slide-004">
+      <h2 class="visually-hidden">Об MVVM, но не совсем</h2>
+      <p class="visually-hidden">Об MVVM, но не совсем 4</p>
+      <img
+        class="slide__image"
+        src="assets/slide-004.png"
+        alt="Об MVVM, но не совсем"
+      />
+    </section>
+    <section class="slide" id="slide-005">
+      <h2 class="visually-hidden">Почему?</h2>
+      <p class="visually-hidden">Почему? 5</p>
+      <img class="slide__image" src="assets/slide-005.png" alt="Почему?" />
+    </section>
+    <section class="slide" id="slide-006">
+      <h2 class="visually-hidden">Будет не только MVVM</h2>
+      <p class="visually-hidden">Будет не только MVVM 6</p>
+      <img
+        class="slide__image"
+        src="assets/slide-006.png"
+        alt="Будет не только MVVM"
+      />
+    </section>
+    <section class="slide" id="slide-007">
+      <h2 class="visually-hidden">Не на прямую, а через путь идеи</h2>
+      <p class="visually-hidden">Не на прямую, а через путь идеи 7</p>
+      <img
+        class="slide__image"
+        src="assets/slide-007.png"
+        alt="Не на прямую, а через путь идеи"
+      />
+    </section>
+    <section class="slide" id="slide-008">
+      <h2 class="visually-hidden">Определение MVVM будет позже</h2>
+      <p class="visually-hidden">Определение MVVM будет позже 8</p>
+      <img
+        class="slide__image"
+        src="assets/slide-008.png"
+        alt="Определение MVVM будет позже"
+      />
+    </section>
+    <section class="slide" id="slide-009">
+      <h2 class="visually-hidden">Примеры на React</h2>
+      <p class="visually-hidden">Примеры на React 9</p>
+      <img
+        class="slide__image"
+        src="assets/slide-009.png"
+        alt="Примеры на React"
+      />
+    </section>
+    <section class="slide" id="slide-010">
+      <h2 class="visually-hidden">Но главное это идеи</h2>
+      <p class="visually-hidden">Но главное это идеи 10</p>
+      <img
+        class="slide__image"
+        src="assets/slide-010.png"
+        alt="Но главное это идеи"
+      />
+    </section>
+    <section class="slide" id="slide-011">
+      <h2 class="visually-hidden">Какая предыстория?</h2>
+      <p class="visually-hidden">Какая предыстория? 11</p>
+      <img
+        class="slide__image"
+        src="assets/slide-011.png"
+        alt="Какая предыстория?"
+      />
+    </section>
+    <section class="slide" id="slide-012">
+      <h2 class="visually-hidden">Замена текущей DS на новую</h2>
+      <p class="visually-hidden">Замена текущей DS на новую 12</p>
+      <img
+        class="slide__image"
+        src="assets/slide-012.png"
+        alt="Замена текущей DS на новую"
+      />
+    </section>
+    <section class="slide" id="slide-013">
+      <h2 class="visually-hidden">Новая DS имеет иной способ стилизации</h2>
+      <p class="visually-hidden">Новая DS имеет иной способ стилизации 13</p>
+      <img
+        class="slide__image"
+        src="assets/slide-013.png"
+        alt="Новая DS имеет иной способ стилизации"
+      />
+    </section>
+    <section class="slide" id="slide-014">
+      <h2 class="visually-hidden">Нужно переключать по фича-флагу</h2>
+      <p class="visually-hidden">Нужно переключать по фича-флагу 14</p>
+      <img
+        class="slide__image"
+        src="assets/slide-014.png"
+        alt="Нужно переключать по фича-флагу"
+      />
+    </section>
+    <section class="slide" id="slide-015">
+      <h2 class="visually-hidden">Поддержка нескольких DS</h2>
+      <p class="visually-hidden">Поддержка нескольких DS 15</p>
+      <img
+        class="slide__image"
+        src="assets/slide-015.png"
+        alt="Поддержка нескольких DS"
+      />
+    </section>
+    <section class="slide" id="slide-016">
+      <h2 class="visually-hidden">Кастомизация для потребителей</h2>
+      <p class="visually-hidden">
+        Кастомизация для потребителей (но это было попозже) 16
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-016.png"
+        alt="Кастомизация для потребителей"
+      />
+    </section>
+    <section class="slide" id="slide-017">
+      <h2 class="visually-hidden">Че ж делать, че ж делать?</h2>
+      <p class="visually-hidden">Че ж делать, че ж делать? 17</p>
+      <img
+        class="slide__image"
+        src="assets/slide-017.png"
+        alt="Че ж делать, че ж делать?"
+      />
+    </section>
+    <section class="slide" id="slide-018">
+      <h2 class="visually-hidden">Какой-то компонент</h2>
+      <p class="visually-hidden">Какой-то компонент 18</p>
+      <img
+        class="slide__image"
+        src="assets/slide-018.png"
+        alt="Какой-то компонент"
+      />
+    </section>
+    <section class="slide" id="slide-019">
+      <h2 class="visually-hidden">о 0 8 оо(копипаста)</h2>
+      <p class="visually-hidden">о 0 8 оо(копипаста) 19</p>
+      <img
+        class="slide__image"
+        src="assets/slide-019.png"
+        alt="о 0 8 оо(копипаста)"
+      />
+    </section>
+    <section class="slide" id="slide-020">
+      <h2 class="visually-hidden">Дублирование</h2>
+      <p class="visually-hidden">Дублирование 20</p>
+      <img class="slide__image" src="assets/slide-020.png" alt="Дублирование" />
+    </section>
+    <section class="slide" id="slide-021">
+      <h2 class="visually-hidden">Дублирование плохА</h2>
+      <p class="visually-hidden">Дублирование плохА 21</p>
+      <img
+        class="slide__image"
+        src="assets/slide-021.png"
+        alt="Дублирование плохА"
+      />
+    </section>
+    <section class="slide" id="slide-022">
+      <h2 class="visually-hidden">Малейшее изменение нужно не потерять</h2>
+      <p class="visually-hidden">Малейшее изменение нужно не потерять 22</p>
+      <img
+        class="slide__image"
+        src="assets/slide-022.png"
+        alt="Малейшее изменение нужно не потерять"
+      />
+    </section>
+    <section class="slide" id="slide-023">
+      <h2 class="visually-hidden">
+        Вынос логики из компонента(hook / setup() / class)
+      </h2>
+      <p class="visually-hidden">
+        Вынос логики из компонента(hook / setup() / class) 23
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-023.png"
+        alt="Вынос логики из компонента(hook / setup() / class)"
+      />
+    </section>
+    <section class="slide" id="slide-024">
+      <h2 class="visually-hidden">Вынос логики в хук</h2>
+      <p class="visually-hidden">Вынос логики в хук 24</p>
+      <img
+        class="slide__image"
+        src="assets/slide-024.png"
+        alt="Вынос логики в хук"
+      />
+    </section>
+    <section class="slide" id="slide-025">
+      <h2 class="visually-hidden">Изменения в лейауте все еще дублируются</h2>
+      <p class="visually-hidden">Изменения в лейауте все еще дублируются 25</p>
+      <img
+        class="slide__image"
+        src="assets/slide-025.png"
+        alt="Изменения в лейауте все еще дублируются"
+      />
+    </section>
+    <section class="slide" id="slide-026">
+      <h2 class="visually-hidden">Headless компоненты</h2>
+      <p class="visually-hidden">Headless компоненты 26</p>
+      <img
+        class="slide__image"
+        src="assets/slide-026.png"
+        alt="Headless компоненты"
+      />
+    </section>
+    <section class="slide" id="slide-027">
+      <h2 class="visually-hidden">
+        Headless – компоненты с логикой, но без стилизации
+      </h2>
+      <p class="visually-hidden">
+        Headless – компоненты с логикой, но без стилизации 27
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-027.png"
+        alt="Headless – компоненты с логикой, но без стилизации"
+      />
+    </section>
+    <section class="slide" id="slide-028">
+      <h2 class="visually-hidden">Обычно стили передаются через className</h2>
+      <p class="visually-hidden">Обычно стили передаются через className 28</p>
+      <img
+        class="slide__image"
+        src="assets/slide-028.png"
+        alt="Обычно стили передаются через className"
+      />
+    </section>
+    <section class="slide" id="slide-029">
+      <h2 class="visually-hidden">Но у нас уже готовые компоненты из DS</h2>
+      <p class="visually-hidden">Но у нас уже готовые компоненты из DS 29</p>
+      <img
+        class="slide__image"
+        src="assets/slide-029.png"
+        alt="Но у нас уже готовые компоненты из DS"
+      />
+    </section>
+    <section class="slide" id="slide-030">
+      <h2 class="visually-hidden">
+        Сделаем headless на уровне компонентов,а не стилей
+      </h2>
+      <p class="visually-hidden">
+        Сделаем headless на уровне компонентов,а не стилей 30
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-030.png"
+        alt="Сделаем headless на уровне компонентов,а не стилей"
+      />
+    </section>
+    <section class="slide" id="slide-031">
+      <h2 class="visually-hidden">Не headless лейаут</h2>
+      <p class="visually-hidden">Не headless лейаут 31</p>
+      <img
+        class="slide__image"
+        src="assets/slide-031.png"
+        alt="Не headless лейаут"
+      />
+    </section>
+    <section class="slide" id="slide-032">
+      <h2 class="visually-hidden">Headless лейаут</h2>
+      <p class="visually-hidden">Headless лейаут 32</p>
+      <img
+        class="slide__image"
+        src="assets/slide-032.png"
+        alt="Headless лейаут"
+      />
+    </section>
+    <section class="slide" id="slide-033">
+      <h2 class="visually-hidden">
+        Title, Button и Container неизвестные компоненты зависящие от контракта
+      </h2>
+      <p class="visually-hidden">
+        Title, Button и Container неизвестные компоненты зависящие от контракта
+        33
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-033.png"
+        alt="Title, Button и Container неизвестные компоненты зависящие от контракта"
+      />
+    </section>
+    <section class="slide" id="slide-034">
+      <h2 class="visually-hidden">
+        Контракт – тип пропсов, которые будут переданы
+      </h2>
+      <p class="visually-hidden">
+        Контракт – тип пропсов, которые будут переданы 34
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-034.png"
+        alt="Контракт – тип пропсов, которые будут переданы"
+      />
+    </section>
+    <section class="slide" id="slide-035">
+      <h2 class="visually-hidden">Компоненты для headless лейаута</h2>
+      <p class="visually-hidden">Компоненты для headless лейаута 35</p>
+      <img
+        class="slide__image"
+        src="assets/slide-035.png"
+        alt="Компоненты для headless лейаута"
+      />
+    </section>
+    <section class="slide" id="slide-036">
+      <h2 class="visually-hidden">ТокенКомпонент не требующий стилизации</h2>
+      <p class="visually-hidden">ТокенКомпонент не требующий стилизации 36</p>
+      <img
+        class="slide__image"
+        src="assets/slide-036.png"
+        alt="ТокенКомпонент не требующий стилизации"
+      />
+    </section>
+    <section class="slide" id="slide-037">
+      <h2 class="visually-hidden">Card по сути тоже токен</h2>
+      <p class="visually-hidden">Card по сути тоже токен 37</p>
+      <img
+        class="slide__image"
+        src="assets/slide-037.png"
+        alt="Card по сути тоже токен"
+      />
+    </section>
+    <section class="slide" id="slide-038">
+      <h2 class="visually-hidden">Card тоже токен</h2>
+      <p class="visually-hidden">Card тоже токен 38</p>
+      <img
+        class="slide__image"
+        src="assets/slide-038.png"
+        alt="Card тоже токен"
+      />
+    </section>
+    <section class="slide" id="slide-039">
+      <h2 class="visually-hidden">Card тоже токен</h2>
+      <p class="visually-hidden">Card тоже токен 39</p>
+      <img
+        class="slide__image"
+        src="assets/slide-039.png"
+        alt="Card тоже токен"
+      />
+    </section>
+    <section class="slide" id="slide-040">
+      <h2 class="visually-hidden">Откуда токены в компонентах будет позже</h2>
+      <p class="visually-hidden">Откуда токены в компонентах будет позже 40</p>
+      <img
+        class="slide__image"
+        src="assets/slide-040.png"
+        alt="Откуда токены в компонентах будет позже"
+      />
+    </section>
+    <section class="slide" id="slide-041">
+      <h2 class="visually-hidden">Интересный побочный эффект</h2>
+      <p class="visually-hidden">Интересный побочный эффект 41</p>
+      <img
+        class="slide__image"
+        src="assets/slide-041.png"
+        alt="Интересный побочный эффект"
+      />
+    </section>
+    <section class="slide" id="slide-042">
+      <h2 class="visually-hidden">Для Screen не важно как устроен Card</h2>
+      <p class="visually-hidden">Для Screen не важно как устроен Card 42</p>
+      <img
+        class="slide__image"
+        src="assets/slide-042.png"
+        alt="Для Screen не важно как устроен Card"
+      />
+    </section>
+    <section class="slide" id="slide-043">
+      <h2 class="visually-hidden">Card – это контракт</h2>
+      <p class="visually-hidden">Card – это контракт 43</p>
+      <img
+        class="slide__image"
+        src="assets/slide-043.png"
+        alt="Card – это контракт"
+      />
+    </section>
+    <section class="slide" id="slide-044">
+      <h2 class="visually-hidden">А данные сейчас вшиты в Headless</h2>
+      <p class="visually-hidden">А данные сейчас вшиты в Headless 44</p>
+      <img
+        class="slide__image"
+        src="assets/slide-044.png"
+        alt="А данные сейчас вшиты в Headless"
+      />
+    </section>
+    <section class="slide" id="slide-045">
+      <h2 class="visually-hidden">
+        Если нужно заменить Card, нужно дать доступ к данным
+      </h2>
+      <p class="visually-hidden">
+        Если нужно заменить Card, нужно дать доступ к данным 45
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-045.png"
+        alt="Если нужно заменить Card, нужно дать доступ к данным"
+      />
+    </section>
+    <section class="slide" id="slide-046">
+      <h2 class="visually-hidden">Оставим лейаут «глупым»</h2>
+      <p class="visually-hidden">Оставим лейаут «глупым» 46</p>
+      <img
+        class="slide__image"
+        src="assets/slide-046.png"
+        alt="Оставим лейаут «глупым»"
+      />
+    </section>
+    <section class="slide" id="slide-047">
+      <h2 class="visually-hidden">Глупый – отвечает только за отображение</h2>
+      <p class="visually-hidden">Глупый – отвечает только за отображение 47</p>
+      <img
+        class="slide__image"
+        src="assets/slide-047.png"
+        alt="Глупый – отвечает только за отображение"
+      />
+    </section>
+    <section class="slide" id="slide-048">
+      <h2 class="visually-hidden">Данные как пропсы</h2>
+      <p class="visually-hidden">Данные как пропсы 48</p>
+      <img
+        class="slide__image"
+        src="assets/slide-048.png"
+        alt="Данные как пропсы"
+      />
+    </section>
+    <section class="slide" id="slide-049">
+      <h2 class="visually-hidden">Данные как пропсы</h2>
+      <p class="visually-hidden">Данные как пропсы 49</p>
+      <img
+        class="slide__image"
+        src="assets/slide-049.png"
+        alt="Данные как пропсы"
+      />
+    </section>
+    <section class="slide" id="slide-050">
+      <h2 class="visually-hidden">
+        Нужен компонент, который предоставит данные
+      </h2>
+      <p class="visually-hidden">
+        Нужен компонент, который предоставит данные 50
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-050.png"
+        alt="Нужен компонент, который предоставит данные"
+      />
+    </section>
+    <section class="slide" id="slide-051">
+      <h2 class="visually-hidden">Нужен провайдер данных</h2>
+      <p class="visually-hidden">Нужен провайдер данных 51</p>
+      <img
+        class="slide__image"
+        src="assets/slide-051.png"
+        alt="Нужен провайдер данных"
+      />
+    </section>
+    <section class="slide" id="slide-052">
+      <h2 class="visually-hidden">Не Context.Provider</h2>
+      <p class="visually-hidden">Не Context.Provider 52</p>
+      <img
+        class="slide__image"
+        src="assets/slide-052.png"
+        alt="Не Context.Provider"
+      />
+    </section>
+    <section class="slide" id="slide-053">
+      <h2 class="visually-hidden">Провайдер данных</h2>
+      <p class="visually-hidden">Провайдер данных 53</p>
+      <img
+        class="slide__image"
+        src="assets/slide-053.png"
+        alt="Провайдер данных"
+      />
+    </section>
+    <section class="slide" id="slide-054">
+      <h2 class="visually-hidden">Локальный провайдер данных</h2>
+      <p class="visually-hidden">Локальный провайдер данных 54</p>
+      <img
+        class="slide__image"
+        src="assets/slide-054.png"
+        alt="Локальный провайдер данных"
+      />
+    </section>
+    <section class="slide" id="slide-055">
+      <h2 class="visually-hidden">Как получать токены в компоненты?</h2>
+      <p class="visually-hidden">Как получать токены в компоненты? 55</p>
+      <img
+        class="slide__image"
+        src="assets/slide-055.png"
+        alt="Как получать токены в компоненты?"
+      />
+    </section>
+    <section class="slide" id="slide-056">
+      <h2 class="visually-hidden">Runtime</h2>
+      <p class="visually-hidden">Runtime 56</p>
+      <img class="slide__image" src="assets/slide-056.png" alt="Runtime" />
+    </section>
+    <section class="slide" id="slide-057">
+      <h2 class="visually-hidden">Конфиг с токенами?</h2>
+      <p class="visually-hidden">Конфиг с токенами? 57</p>
+      <img
+        class="slide__image"
+        src="assets/slide-057.png"
+        alt="Конфиг с токенами?"
+      />
+    </section>
+    <section class="slide" id="slide-058">
+      <h2 class="visually-hidden">Конфиг для Card</h2>
+      <p class="visually-hidden">Конфиг для Card 58</p>
+      <img
+        class="slide__image"
+        src="assets/slide-058.png"
+        alt="Конфиг для Card"
+      />
+    </section>
+    <section class="slide" id="slide-059">
+      <h2 class="visually-hidden">Извлечение токенов в Card</h2>
+      <p class="visually-hidden">Извлечение токенов в Card 59</p>
+      <img
+        class="slide__image"
+        src="assets/slide-059.png"
+        alt="Извлечение токенов в Card"
+      />
+    </section>
+    <section class="slide" id="slide-060">
+      <h2 class="visually-hidden">Конфиг для Sceen</h2>
+      <p class="visually-hidden">Конфиг для Sceen 60</p>
+      <img
+        class="slide__image"
+        src="assets/slide-060.png"
+        alt="Конфиг для Sceen"
+      />
+    </section>
+    <section class="slide" id="slide-061">
+      <h2 class="visually-hidden">Извлечение токенов в Screen</h2>
+      <p class="visually-hidden">Извлечение токенов в Screen 61</p>
+      <img
+        class="slide__image"
+        src="assets/slide-061.png"
+        alt="Извлечение токенов в Screen"
+      />
+    </section>
+    <section class="slide" id="slide-062">
+      <h2 class="visually-hidden">Не выйдет переиспользовать лейаут</h2>
+      <p class="visually-hidden">
+        Не выйдет переиспользовать лейаут (Токены прибиты гвоздями) 62
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-062.png"
+        alt="Не выйдет переиспользовать лейаут"
+      />
+    </section>
+    <section class="slide" id="slide-063">
+      <h2 class="visually-hidden">Card берет конкретные токены</h2>
+      <p class="visually-hidden">Card берет конкретные токены 63</p>
+      <img
+        class="slide__image"
+        src="assets/slide-063.png"
+        alt="Card берет конкретные токены"
+      />
+    </section>
+    <section class="slide" id="slide-064">
+      <h2 class="visually-hidden">Рекурсивная зависимость</h2>
+      <p class="visually-hidden">Рекурсивная зависимость 64</p>
+      <img
+        class="slide__image"
+        src="assets/slide-064.png"
+        alt="Рекурсивная зависимость"
+      />
+    </section>
+    <section class="slide" id="slide-065">
+      <h2 class="visually-hidden">Конфиг еще вернется в новом обличии</h2>
+      <p class="visually-hidden">Конфиг еще вернется в новом обличии 65</p>
+      <img
+        class="slide__image"
+        src="assets/slide-065.png"
+        alt="Конфиг еще вернется в новом обличии"
+      />
+    </section>
+    <section class="slide" id="slide-066">
+      <h2 class="visually-hidden">Токены как пропсы</h2>
+      <p class="visually-hidden">Токены как пропсы 66</p>
+      <img
+        class="slide__image"
+        src="assets/slide-066.png"
+        alt="Токены как пропсы"
+      />
+    </section>
+    <section class="slide" id="slide-067">
+      <h2 class="visually-hidden">Токены как пропсы в Card</h2>
+      <p class="visually-hidden">Токены как пропсы в Card 67</p>
+      <img
+        class="slide__image"
+        src="assets/slide-067.png"
+        alt="Токены как пропсы в Card"
+      />
+    </section>
+    <section class="slide" id="slide-068">
+      <h2 class="visually-hidden">Передача токенов в Card</h2>
+      <p class="visually-hidden">Передача токенов в Card 68</p>
+      <img
+        class="slide__image"
+        src="assets/slide-068.png"
+        alt="Передача токенов в Card"
+      />
+    </section>
+    <section class="slide" id="slide-069">
+      <h2 class="visually-hidden">Токены как пропсы в Screen</h2>
+      <p class="visually-hidden">Токены как пропсы в Screen 69</p>
+      <img
+        class="slide__image"
+        src="assets/slide-069.png"
+        alt="Токены как пропсы в Screen"
+      />
+    </section>
+    <section class="slide" id="slide-070">
+      <h2 class="visually-hidden">Передача Card в Screen</h2>
+      <p class="visually-hidden">Передача Card в Screen 70</p>
+      <img
+        class="slide__image"
+        src="assets/slide-070.png"
+        alt="Передача Card в Screen"
+      />
+    </section>
+    <section class="slide" id="slide-071">
+      <h2 class="visually-hidden">Собранный компонент – блок</h2>
+      <p class="visually-hidden">Собранный компонент – блок 71</p>
+      <img
+        class="slide__image"
+        src="assets/slide-071.png"
+        alt="Собранный компонент – блок"
+      />
+    </section>
+    <section class="slide" id="slide-072">
+      <h2 class="visually-hidden">Пропс лейаута в провайдере данных</h2>
+      <p class="visually-hidden">Пропс лейаута в провайдере данных 72</p>
+      <img
+        class="slide__image"
+        src="assets/slide-072.png"
+        alt="Пропс лейаута в провайдере данных"
+      />
+    </section>
+    <section class="slide" id="slide-073">
+      <h2 class="visually-hidden">Передача лейаута в провайдер данных</h2>
+      <p class="visually-hidden">Передача лейаута в провайдер данных 73</p>
+      <img
+        class="slide__image"
+        src="assets/slide-073.png"
+        alt="Передача лейаута в провайдер данных"
+      />
+    </section>
+    <section class="slide" id="slide-074">
+      <h2 class="visually-hidden">Buildtime</h2>
+      <p class="visually-hidden">Buildtime 74</p>
+      <img class="slide__image" src="assets/slide-074.png" alt="Buildtime" />
+    </section>
+    <section class="slide" id="slide-075">
+      <h2 class="visually-hidden">Декларирование модуля</h2>
+      <p class="visually-hidden">Декларирование модуля 75</p>
+      <img
+        class="slide__image"
+        src="assets/slide-075.png"
+        alt="Декларирование модуля"
+      />
+    </section>
+    <section class="slide" id="slide-076">
+      <h2 class="visually-hidden">Импорт</h2>
+      <p class="visually-hidden">Импорт 76</p>
+      <img class="slide__image" src="assets/slide-076.png" alt="Импорт" />
+    </section>
+    <section class="slide" id="slide-077">
+      <h2 class="visually-hidden">Подстановка модуля</h2>
+      <p class="visually-hidden">Подстановка модуля 77</p>
+      <img
+        class="slide__image"
+        src="assets/slide-077.png"
+        alt="Подстановка модуля"
+      />
+    </section>
+    <section class="slide" id="slide-078">
+      <h2 class="visually-hidden">На текущий момент</h2>
+      <p class="visually-hidden">На текущий момент 78</p>
+      <img
+        class="slide__image"
+        src="assets/slide-078.png"
+        alt="На текущий момент"
+      />
+    </section>
+    <section class="slide" id="slide-079">
+      <h2 class="visually-hidden">Обособленная логика приложения</h2>
+      <p class="visually-hidden">Обособленная логика приложения 79</p>
+      <img
+        class="slide__image"
+        src="assets/slide-079.png"
+        alt="Обособленная логика приложения"
+      />
+    </section>
+    <section class="slide" id="slide-080">
+      <h2 class="visually-hidden">Лейаут без логики*</h2>
+      <p class="visually-hidden">Лейаут без логики* 80</p>
+      <img
+        class="slide__image"
+        src="assets/slide-080.png"
+        alt="Лейаут без логики*"
+      />
+    </section>
+    <section class="slide" id="slide-081">
+      <h2 class="visually-hidden">*Лейаут не dumb component</h2>
+      <p class="visually-hidden">*Лейаут не dumb component 81</p>
+      <img
+        class="slide__image"
+        src="assets/slide-081.png"
+        alt="*Лейаут не dumb component"
+      />
+    </section>
+    <section class="slide" id="slide-082">
+      <h2 class="visually-hidden">Лейаут без зависимости от DS</h2>
+      <p class="visually-hidden">Лейаут без зависимости от DS 82</p>
+      <img
+        class="slide__image"
+        src="assets/slide-082.png"
+        alt="Лейаут без зависимости от DS"
+      />
+    </section>
+    <section class="slide" id="slide-083">
+      <h2 class="visually-hidden">Адаптер между логикой и представлением</h2>
+      <p class="visually-hidden">Адаптер между логикой и представлением 83</p>
+      <img
+        class="slide__image"
+        src="assets/slide-083.png"
+        alt="Адаптер между логикой и представлением"
+      />
+    </section>
+    <section class="slide" id="slide-084">
+      <h2 class="visually-hidden">Вот и получился MVVM</h2>
+      <p class="visually-hidden">Вот и получился MVVM 84</p>
+      <img
+        class="slide__image"
+        src="assets/slide-084.png"
+        alt="Вот и получился MVVM"
+      />
+    </section>
+    <section class="slide" id="slide-085">
+      <h2 class="visually-hidden">Что это все таки такое?</h2>
+      <p class="visually-hidden">Что это все таки такое? 85</p>
+      <img
+        class="slide__image"
+        src="assets/slide-085.png"
+        alt="Что это все таки такое?"
+      />
+    </section>
+    <section class="slide" id="slide-086">
+      <h2 class="visually-hidden">Model View View-Model</h2>
+      <p class="visually-hidden">Model View View-Model 86</p>
+      <img
+        class="slide__image"
+        src="assets/slide-086.png"
+        alt="Model View View-Model"
+      />
+    </section>
+    <section class="slide" id="slide-087">
+      <h2 class="visually-hidden">
+        Model – хранение, загрузка, обработка данных
+      </h2>
+      <p class="visually-hidden">
+        Model – хранение, загрузка, обработка данных 87
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-087.png"
+        alt="Model – хранение, загрузка, обработка данных"
+      />
+    </section>
+    <section class="slide" id="slide-088">
+      <h2 class="visually-hidden">View – отображение данных</h2>
+      <p class="visually-hidden">View – отображение данных 88</p>
+      <img
+        class="slide__image"
+        src="assets/slide-088.png"
+        alt="View – отображение данных"
+      />
+    </section>
+    <section class="slide" id="slide-089">
+      <h2 class="visually-hidden">View-Model – связующие звено</h2>
+      <p class="visually-hidden">View-Model – связующие звено 89</p>
+      <img
+        class="slide__image"
+        src="assets/slide-089.png"
+        alt="View-Model – связующие звено"
+      />
+    </section>
+    <section class="slide" id="slide-090">
+      <h2 class="visually-hidden">Что это дает?</h2>
+      <p class="visually-hidden">Что это дает? 90</p>
+      <img
+        class="slide__image"
+        src="assets/slide-090.png"
+        alt="Что это дает?"
+      />
+    </section>
+    <section class="slide" id="slide-091">
+      <h2 class="visually-hidden">Легко тестировать UI</h2>
+      <p class="visually-hidden">Легко тестировать UI 91</p>
+      <img
+        class="slide__image"
+        src="assets/slide-091.png"
+        alt="Легко тестировать UI"
+      />
+    </section>
+    <section class="slide" id="slide-092">
+      <h2 class="visually-hidden">Легко тестировать логику</h2>
+      <p class="visually-hidden">Легко тестировать логику 92</p>
+      <img
+        class="slide__image"
+        src="assets/slide-092.png"
+        alt="Легко тестировать логику"
+      />
+    </section>
+    <section class="slide" id="slide-093">
+      <h2 class="visually-hidden">Легко заменить один UI на другой</h2>
+      <p class="visually-hidden">Легко заменить один UI на другой 93</p>
+      <img
+        class="slide__image"
+        src="assets/slide-093.png"
+        alt="Легко заменить один UI на другой"
+      />
+    </section>
+    <section class="slide" id="slide-094">
+      <h2 class="visually-hidden">
+        Легко заменить один источник данных на другой
+      </h2>
+      <p class="visually-hidden">
+        Легко заменить один источник данных на другой 94
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-094.png"
+        alt="Легко заменить один источник данных на другой"
+      />
+    </section>
+    <section class="slide" id="slide-095">
+      <h2 class="visually-hidden">MVVM – разделение зон ответственности</h2>
+      <p class="visually-hidden">MVVM – разделение зон ответственности 95</p>
+      <img
+        class="slide__image"
+        src="assets/slide-095.png"
+        alt="MVVM – разделение зон ответственности"
+      />
+    </section>
+    <section class="slide" id="slide-096">
+      <h2 class="visually-hidden">Типизация</h2>
+      <p class="visually-hidden">Типизация 96</p>
+      <img class="slide__image" src="assets/slide-096.png" alt="Типизация" />
+    </section>
+    <section class="slide" id="slide-097">
+      <h2 class="visually-hidden">Слои взаимодействуют, через контракты</h2>
+      <p class="visually-hidden">Слои взаимодействуют, через контракты 97</p>
+      <img
+        class="slide__image"
+        src="assets/slide-097.png"
+        alt="Слои взаимодействуют, через контракты"
+      />
+    </section>
+    <section class="slide" id="slide-098">
+      <h2 class="visually-hidden">Типы и есть контракты</h2>
+      <p class="visually-hidden">Типы и есть контракты 98</p>
+      <img
+        class="slide__image"
+        src="assets/slide-098.png"
+        alt="Типы и есть контракты"
+      />
+    </section>
+    <section class="slide" id="slide-099">
+      <h2 class="visually-hidden">Контракты для токенов</h2>
+      <p class="visually-hidden">Контракты для токенов 99</p>
+      <img
+        class="slide__image"
+        src="assets/slide-099.png"
+        alt="Контракты для токенов"
+      />
+    </section>
+    <section class="slide" id="slide-100">
+      <h2 class="visually-hidden">Контракты токенов</h2>
+      <p class="visually-hidden">Контракты токенов 100</p>
+      <img
+        class="slide__image"
+        src="assets/slide-100.png"
+        alt="Контракты токенов"
+      />
+    </section>
+    <section class="slide" id="slide-101">
+      <h2 class="visually-hidden">Токены</h2>
+      <p class="visually-hidden">Токены 101</p>
+      <img class="slide__image" src="assets/slide-101.png" alt="Токены" />
+    </section>
+    <section class="slide" id="slide-102">
+      <h2 class="visually-hidden">Токены</h2>
+      <p class="visually-hidden">Токены 102</p>
+      <img class="slide__image" src="assets/slide-102.png" alt="Токены" />
+    </section>
+    <section class="slide" id="slide-103">
+      <h2 class="visually-hidden">Headless</h2>
+      <p class="visually-hidden">Headless 103</p>
+      <img class="slide__image" src="assets/slide-103.png" alt="Headless" />
+    </section>
+    <section class="slide" id="slide-104">
+      <h2 class="visually-hidden">Тип токенов для Headless лайанутов</h2>
+      <p class="visually-hidden">Тип токенов для Headless лайанутов 104</p>
+      <img
+        class="slide__image"
+        src="assets/slide-104.png"
+        alt="Тип токенов для Headless лайанутов"
+      />
+    </section>
+    <section class="slide" id="slide-105">
+      <h2 class="visually-hidden">Попсы Headless лейутов</h2>
+      <p class="visually-hidden">Попсы Headless лейутов 105</p>
+      <img
+        class="slide__image"
+        src="assets/slide-105.png"
+        alt="Попсы Headless лейутов"
+      />
+    </section>
+    <section class="slide" id="slide-106">
+      <h2 class="visually-hidden">Кастомизация</h2>
+      <p class="visually-hidden">Кастомизация 106</p>
+      <img class="slide__image" src="assets/slide-106.png" alt="Кастомизация" />
+    </section>
+    <section class="slide" id="slide-107">
+      <h2 class="visually-hidden">Фича-флаг кастомизация</h2>
+      <p class="visually-hidden">Фича-флаг кастомизация 107</p>
+      <img
+        class="slide__image"
+        src="assets/slide-107.png"
+        alt="Фича-флаг кастомизация"
+      />
+    </section>
+    <section class="slide" id="slide-108">
+      <h2 class="visually-hidden">Фича-флаг кастомизация</h2>
+      <p class="visually-hidden">Фича-флаг кастомизация 108</p>
+      <img
+        class="slide__image"
+        src="assets/slide-108.png"
+        alt="Фича-флаг кастомизация"
+      />
+    </section>
+    <section class="slide" id="slide-109">
+      <h2 class="visually-hidden">Каждый случай нужно описывать отдельно</h2>
+      <p class="visually-hidden">Каждый случай нужно описывать отдельно 109</p>
+      <img
+        class="slide__image"
+        src="assets/slide-109.png"
+        alt="Каждый случай нужно описывать отдельно"
+      />
+    </section>
+    <section class="slide" id="slide-110">
+      <h2 class="visually-hidden">Кастомизация на перезаписи токенов</h2>
+      <p class="visually-hidden">Кастомизация на перезаписи токенов 110</p>
+      <img
+        class="slide__image"
+        src="assets/slide-110.png"
+        alt="Кастомизация на перезаписи токенов"
+      />
+    </section>
+    <section class="slide" id="slide-111">
+      <h2 class="visually-hidden">Этап первый</h2>
+      <p class="visually-hidden">Этап первый 111</p>
+      <img class="slide__image" src="assets/slide-111.png" alt="Этап первый" />
+    </section>
+    <section class="slide" id="slide-112">
+      <h2 class="visually-hidden">
+        Компоненты которые зависят только от токенов
+      </h2>
+      <p class="visually-hidden">
+        Компоненты которые зависят только от токенов 112
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-112.png"
+        alt="Компоненты которые зависят только от токенов"
+      />
+    </section>
+    <section class="slide" id="slide-113">
+      <h2 class="visually-hidden">Сборный компонент Card</h2>
+      <p class="visually-hidden">Сборный компонент Card 113</p>
+      <img
+        class="slide__image"
+        src="assets/slide-113.png"
+        alt="Сборный компонент Card"
+      />
+    </section>
+    <section class="slide" id="slide-114">
+      <h2 class="visually-hidden">props – это json</h2>
+      <p class="visually-hidden">props – это json 114</p>
+      <img
+        class="slide__image"
+        src="assets/slide-114.png"
+        alt="props – это json"
+      />
+    </section>
+    <section class="slide" id="slide-115">
+      <h2 class="visually-hidden">
+        Объявление одного и того же поля перезаписывает его
+      </h2>
+      <p class="visually-hidden">
+        Объявление одного и того же поля перезаписывает его 115
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-115.png"
+        alt="Объявление одного и того же поля перезаписывает его"
+      />
+    </section>
+    <section class="slide" id="slide-116">
+      <h2 class="visually-hidden">Перезапись Title</h2>
+      <p class="visually-hidden">Перезапись Title</p>
+      <img
+        class="slide__image"
+        src="assets/slide-116.png"
+        alt="Перезапись Title"
+      />
+    </section>
+    <section class="slide" id="slide-117">
+      <h2 class="visually-hidden">Перезапись токенов Card</h2>
+      <p class="visually-hidden">Перезапись токенов Card 117</p>
+      <img
+        class="slide__image"
+        src="assets/slide-117.png"
+        alt="Перезапись токенов Card"
+      />
+    </section>
+    <section class="slide" id="slide-118">
+      <h2 class="visually-hidden">Передача overrides в Card</h2>
+      <p class="visually-hidden">Передача overrides в Card 118</p>
+      <img
+        class="slide__image"
+        src="assets/slide-118.png"
+        alt="Передача overrides в Card"
+      />
+    </section>
+    <section class="slide" id="slide-119">
+      <h2 class="visually-hidden">Этап второй</h2>
+      <p class="visually-hidden">Этап второй 119</p>
+      <img class="slide__image" src="assets/slide-119.png" alt="Этап второй" />
+    </section>
+    <section class="slide" id="slide-120">
+      <h2 class="visually-hidden">Компоненты зависящие от блоков</h2>
+      <p class="visually-hidden">Компоненты зависящие от блоков 120</p>
+      <img
+        class="slide__image"
+        src="assets/slide-120.png"
+        alt="Компоненты зависящие от блоков"
+      />
+    </section>
+    <section class="slide" id="slide-121">
+      <h2 class="visually-hidden">Будет чуть-чуть запутанно</h2>
+      <p class="visually-hidden">Будет чуть-чуть запутанно 121</p>
+      <img
+        class="slide__image"
+        src="assets/slide-121.png"
+        alt="Будет чуть-чуть запутанно"
+      />
+    </section>
+    <section class="slide" id="slide-122">
+      <h2 class="visually-hidden">Screen зависит от Card</h2>
+      <p class="visually-hidden">Screen зависит от Card 122</p>
+      <img
+        class="slide__image"
+        src="assets/slide-122.png"
+        alt="Screen зависит от Card"
+      />
+    </section>
+    <section class="slide" id="slide-123">
+      <h2 class="visually-hidden">Можно сделать также как и Card</h2>
+      <p class="visually-hidden">Можно сделать также как и Card 123</p>
+      <img
+        class="slide__image"
+        src="assets/slide-123.png"
+        alt="Можно сделать также как и Card"
+      />
+    </section>
+    <section class="slide" id="slide-124">
+      <h2 class="visually-hidden">Переопределение токенов Screen</h2>
+      <p class="visually-hidden">Переопределение токенов Screen 124</p>
+      <img
+        class="slide__image"
+        src="assets/slide-124.png"
+        alt="Переопределение токенов Screen"
+      />
+    </section>
+    <section class="slide" id="slide-125">
+      <h2 class="visually-hidden">
+        Но что если хочется переопределить что-то в Card?
+      </h2>
+      <p class="visually-hidden">
+        Но что если хочется переопределить что-то в Card? 125
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-125.png"
+        alt="Но что если хочется переопределить что-то в Card?"
+      />
+    </section>
+    <section class="slide" id="slide-126">
+      <h2 class="visually-hidden">Передача перезаписи токенов для Card</h2>
+      <p class="visually-hidden">Передача перезаписи токенов для Card 126</p>
+      <img
+        class="slide__image"
+        src="assets/slide-126.png"
+        alt="Передача перезаписи токенов для Card"
+      />
+    </section>
+    <section class="slide" id="slide-127">
+      <h2 class="visually-hidden">Передадим не компонент, а JSON</h2>
+      <p class="visually-hidden">Передадим не компонент, а JSON 127</p>
+      <img
+        class="slide__image"
+        src="assets/slide-127.png"
+        alt="Передадим не компонент, а JSON"
+      />
+    </section>
+    <section class="slide" id="slide-128">
+      <h2 class="visually-hidden">Передача токенов для Card в Screen</h2>
+      <p class="visually-hidden">Передача токенов для Card в Screen 128</p>
+      <img
+        class="slide__image"
+        src="assets/slide-128.png"
+        alt="Передача токенов для Card в Screen"
+      />
+    </section>
+    <section class="slide" id="slide-129">
+      <h2 class="visually-hidden">Перезаписи токенов Card в HeadlessScreen</h2>
+      <p class="visually-hidden">
+        Перезаписи токенов Card в HeadlessScreen 129
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-129.png"
+        alt="Перезаписи токенов Card в HeadlessScreen"
+      />
+    </section>
+    <section class="slide" id="slide-130">
+      <h2 class="visually-hidden">
+        Нужно разделять перезаписть компонент и частей
+      </h2>
+      <p class="visually-hidden">
+        Нужно разделять перезаписть компонент и частей 130
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-130.png"
+        alt="Нужно разделять перезаписть компонент и частей"
+      />
+    </section>
+    <section class="slide" id="slide-131">
+      <h2 class="visually-hidden">Разделение overrides на части</h2>
+      <p class="visually-hidden">Разделение overrides на части 131</p>
+      <img
+        class="slide__image"
+        src="assets/slide-131.png"
+        alt="Разделение overrides на части"
+      />
+    </section>
+    <section class="slide" id="slide-132">
+      <h2 class="visually-hidden">Логика разделения overrides на части</h2>
+      <p class="visually-hidden">Логика разделения overrides на части 132</p>
+      <img
+        class="slide__image"
+        src="assets/slide-132.png"
+        alt="Логика разделения overrides на части"
+      />
+    </section>
+    <section class="slide" id="slide-133">
+      <h2 class="visually-hidden">Логика разделения overrides на части</h2>
+      <p class="visually-hidden">Логика разделения overrides на части 133</p>
+      <img
+        class="slide__image"
+        src="assets/slide-133.png"
+        alt="Логика разделения overrides на части"
+      />
+    </section>
+    <section class="slide" id="slide-134">
+      <h2 class="visually-hidden">Типизация для overrides</h2>
+      <p class="visually-hidden">Типизация для overrides 134</p>
+      <img
+        class="slide__image"
+        src="assets/slide-134.png"
+        alt="Типизация для overrides"
+      />
+    </section>
+    <section class="slide" id="slide-135">
+      <h2 class="visually-hidden">Очень бегло</h2>
+      <p class="visually-hidden">Очень бегло 135</p>
+      <img class="slide__image" src="assets/slide-135.png" alt="Очень бегло" />
+    </section>
+    <section class="slide" id="slide-136">
+      <h2 class="visually-hidden">Демка</h2>
+      <p class="visually-hidden">Демка 136</p>
+      <img class="slide__image" src="assets/slide-136.png" alt="Демка" />
+    </section>
+    <section class="slide" id="slide-137">
+      <h2 class="visually-hidden">Личные советы</h2>
+      <p class="visually-hidden">Личные советы 137</p>
+      <img
+        class="slide__image"
+        src="assets/slide-137.png"
+        alt="Личные советы"
+      />
+    </section>
+    <section class="slide" id="slide-138">
+      <h2 class="visually-hidden">
+        Избегайте обработки данных вне провайдеров
+      </h2>
+      <p class="visually-hidden">
+        Избегайте обработки данных вне провайдеров 138
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-138.png"
+        alt="Избегайте обработки данных вне провайдеров"
+      />
+    </section>
+    <section class="slide" id="slide-139">
+      <h2 class="visually-hidden">Логика в ui</h2>
+      <p class="visually-hidden">Логика в ui 139</p>
+      <img class="slide__image" src="assets/slide-139.png" alt="Логика в ui" />
+    </section>
+    <section class="slide" id="slide-140">
+      <h2 class="visually-hidden">Избегать !== 100% нельзя</h2>
+      <p class="visually-hidden">Избегать !== 100% нельзя 140</p>
+      <img
+        class="slide__image"
+        src="assets/slide-140.png"
+        alt="Избегать !== 100% нельзя"
+      />
+    </section>
+    <section class="slide" id="slide-141">
+      <h2 class="visually-hidden">
+        Управляйте отображением через данные, а не флаги
+      </h2>
+      <p class="visually-hidden">
+        Управляйте отображением через данные, а не флаги 141
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-141.png"
+        alt="Управляйте отображением через данные, а не флаги"
+      />
+    </section>
+    <section class="slide" id="slide-142">
+      <h2 class="visually-hidden">Через флаг</h2>
+      <p class="visually-hidden">Через флаг 142</p>
+      <img class="slide__image" src="assets/slide-142.png" alt="Через флаг" />
+    </section>
+    <section class="slide" id="slide-143">
+      <h2 class="visually-hidden">Через данные</h2>
+      <p class="visually-hidden">Через данные 143</p>
+      <img class="slide__image" src="assets/slide-143.png" alt="Через данные" />
+    </section>
+    <section class="slide" id="slide-144">
+      <h2 class="visually-hidden">
+        Если массив данных, то не передавайте скрытые элементы
+      </h2>
+      <p class="visually-hidden">
+        Если массив данных, то не передавайте скрытые элементы 144
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-144.png"
+        alt="Если массив данных, то не передавайте скрытые элементы"
+      />
+    </section>
+    <section class="slide" id="slide-145">
+      <h2 class="visually-hidden">Через флаг</h2>
+      <p class="visually-hidden">Через флаг 145</p>
+      <img class="slide__image" src="assets/slide-145.png" alt="Через флаг" />
+    </section>
+    <section class="slide" id="slide-146">
+      <h2 class="visually-hidden">Через данные</h2>
+      <p class="visually-hidden">Через данные 146</p>
+      <img class="slide__image" src="assets/slide-146.png" alt="Через данные" />
+    </section>
+    <section class="slide" id="slide-147">
+      <h2 class="visually-hidden">
+        Лейаут можно разбивать на части по мере необходимости
+      </h2>
+      <p class="visually-hidden">
+        Лейаут можно разбивать на части по мере необходимости 147
+      </p>
+      <img
+        class="slide__image"
+        src="assets/slide-147.png"
+        alt="Лейаут можно разбивать на части по мере необходимости"
+      />
+    </section>
+    <section class="slide" id="slide-148">
+      <h2 class="visually-hidden">Спасибо за внимание</h2>
+      <p class="visually-hidden">Спасибо за внимание 148</p>
+      <img
+        class="slide__image"
+        src="assets/slide-148.png"
+        alt="Спасибо за внимание"
+      />
+    </section>
+    <section class="slide" id="slide-149">
+      <h2 class="visually-hidden">149</h2>
+      <p class="visually-hidden">149</p>
+      <img class="slide__image" src="assets/slide-149.png" alt="149" />
+    </section>
+    <section class="slide" id="slide-150">
+      <h2 class="visually-hidden">150</h2>
+      <p class="visually-hidden">150</p>
+      <img class="slide__image" src="assets/slide-150.png" alt="150" />
+    </section>
+    <section class="slide" id="slide-151">
+      <h2 class="visually-hidden">151</h2>
+      <p class="visually-hidden">151</p>
+      <img class="slide__image" src="assets/slide-151.png" alt="151" />
+    </section>
+    <section class="slide" id="slide-152">
+      <h2 class="visually-hidden">Overrides</h2>
+      <p class="visually-hidden">Overrides 152</p>
+      <img class="slide__image" src="assets/slide-152.png" alt="Overrides" />
+    </section>
+    <section class="slide" id="slide-153">
+      <h2 class="visually-hidden">Опять немного запутанно</h2>
+      <p class="visually-hidden">Опять немного запутанно 153</p>
+      <img
+        class="slide__image"
+        src="assets/slide-153.png"
+        alt="Опять немного запутанно"
+      />
+    </section>
+    <section class="slide" id="slide-154">
+      <h2 class="visually-hidden">Overrides для Card</h2>
+      <p class="visually-hidden">Overrides для Card 154</p>
+      <img
+        class="slide__image"
+        src="assets/slide-154.png"
+        alt="Overrides для Card"
+      />
+    </section>
+    <section class="slide" id="slide-155">
+      <h2 class="visually-hidden">Overrides для Screen</h2>
+      <p class="visually-hidden">Overrides для Screen 155</p>
+      <img
+        class="slide__image"
+        src="assets/slide-155.png"
+        alt="Overrides для Screen"
+      />
+    </section>
+    <section class="slide" id="slide-156">
+      <h2 class="visually-hidden">Утилитарный тип</h2>
+      <p class="visually-hidden">Утилитарный тип 156</p>
+      <img
+        class="slide__image"
+        src="assets/slide-156.png"
+        alt="Утилитарный тип"
+      />
+    </section>
+    <section class="slide" id="slide-157">
+      <h2 class="visually-hidden">Утилитарный тип</h2>
+      <p class="visually-hidden">Утилитарный тип 157</p>
+      <img
+        class="slide__image"
+        src="assets/slide-157.png"
+        alt="Утилитарный тип"
+      />
+    </section>
+    <section class="slide" id="slide-158">
+      <h2 class="visually-hidden">158</h2>
+      <p class="visually-hidden">158</p>
+      <img class="slide__image" src="assets/slide-158.png" alt="158" />
+    </section>
+    <section class="slide" id="slide-159">
+      <h2 class="visually-hidden">159</h2>
+      <p class="visually-hidden">159</p>
+      <img class="slide__image" src="assets/slide-159.png" alt="159" />
+    </section>
+    <section class="slide" id="slide-160">
+      <h2 class="visually-hidden">160</h2>
+      <p class="visually-hidden">160</p>
+      <img class="slide__image" src="assets/slide-160.png" alt="160" />
+    </section>
+    <section class="slide" id="slide-161">
+      <h2 class="visually-hidden">161</h2>
+      <p class="visually-hidden">161</p>
+      <img class="slide__image" src="assets/slide-161.png" alt="161" />
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@shower/core/dist/shower.min.js"></script>
+  </body>
+</html>
